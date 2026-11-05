@@ -1,0 +1,117 @@
+# mainguitar.mdgn -- The main instrument controller for generating MIDI files for guitar-type instruments
+# Copyright (C) 2026  Sophia Elizabeth Shapira
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+use strict;
+
+sub new {
+  my $this;
+  my $lc_bart;
+  my $lc_rawneck; # Raw version of neck provided to this
+  my $lc_ret; # Return object
+  my $lc_neck; # On-board diagram of the guitar neck
+  my $lc_tune; # Will go as arg to construct low level
+  my $lc_llev;
+  
+  # Get stuff from the arguments
+  $this = shift(@_);
+  $lc_bart = shift(@_);
+  $lc_rawneck = shift(@_);
+  
+  # Initialize pre-blessed object
+  $lc_ret = {
+    'bart' => $lc_bart,
+  };
+  
+  # Set up the neck diagram, as well as the tuning
+  # prototype that will go to the low-level implementation
+  # engine's constructor
+  $lc_neck = [ 0 ]; # To deal with offset of array element
+  $lc_tune = [ ];
+  {
+    my $lc2_a; # Tracks elements of raw version of neck
+    my $lc2_b; # Numerical pitch representation of $lc2_a
+    foreach $lc2_a (@$lc_rawneck)
+    {
+      $lc2_b = $lc_bart->note_to_pitch($lc2_a);
+      push @$lc_tune, $lc2_b;
+      push @$lc_neck, {
+        'bas' => $lc2_b, # Base pitch of string
+        'fret' => 0, # The fret that the finger (if any) covers
+        'fngr' => '', # The fingering
+        'aud' => 1, # Is this string audible (non-muted)?
+      };
+    }
+  }
+  $lc_ret->{'neck'} = $lc_neck;
+  $lc_ret->{'nsiz'} = ( scalar @$lc_rawneck );
+  $lc_ret->{'bar'} = 0; # Where this measure begins
+  
+  # Constructing the low-level implementation object is
+  # crucial --- and if it fails, then the construction
+  # of _this_ object should _also_ fail.
+  $lc_llev = $lc_bart->fromus('Impl::MIDI1_SingleChan',$lc_tune,{
+    'tpb' => 960,
+  });
+  if ( !($lc_llev) )
+  {
+    print STDERR "\nFailed to invoke low-level engine.\n\n";
+    return undef;
+  }
+  $lc_ret->{'llev'} = $lc_llev;
+  
+  # Bless and return the new object.
+  return bless ( $lc_ret, ( ref($this) || $this ) );
+}
+
+
+sub play {
+  # Strum/Pluck a String
+  
+  my $this;
+  my $lc_string; # What string we will play
+  my $lc_ext; # Extra stuff on the plucking
+  my $lc_rawret; # Return from low-level pluck
+  
+  # Get the stuff from arguments.
+  $this = shift(@_);
+  $lc_string = shift(@_);
+  $lc_ext = shift(@_);
+  
+  # Sooner die than pluck a non-existent string.
+  if ( $lc_string < 0.5 ) { die "\nOut of bounds.\n"; }
+  if ( $lc_string > ( ( $this->{'nsiz'} ) + 0.5 ) ) { die "\nOut of bounds.\n"; }
+  
+  # No sound if the string is muted.
+  if ( !($this->{'neck'}->[$lc_string]->{'aud'}) )
+  {
+    return
+    {
+      'aud' => 0,
+      'bas' => $this->{'neck'}->[$lc_string]->{'bas'},
+      'fret' => $this->{'neck'}->[$lc_string]->{'fret'},
+    };
+  }
+  
+  $lc_rawret = $this->{'llev'}->note_on($lc_string,$lc_ext);
+  
+  $lc_rawret->{'bas'} = $this->{'neck'}->[$lc_string]->{'bas'};
+  $lc_rawret->{'fret'} = $this->{'neck'}->[$lc_string]->{'fret'};
+  
+  return $lc_rawret;
+}
+
+
+
+1;
