@@ -14,6 +14,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 use Storable qw(dclone);
+use File::Path qw(make_path);
+use Fcntl qw(O_WRONLY O_CREAT O_EXCL);
+use Errno qw(EEXIST);
+use POSIX qw(strftime);
 use strict;
 
 sub new {
@@ -64,7 +68,7 @@ sub new {
   # Constructing the low-level implementation object is
   # crucial --- and if it fails, then the construction
   # of _this_ object should _also_ fail.
-  $lc_llev = $lc_bart->fromus('Impl::MIDI1_SingleChan',$lc_tune,{
+  $lc_llev = $lc_bart->fromus('Impl::MIDI1_MultiChan',$lc_tune,{
     'tpb' => 960,
   });
   if ( !($lc_llev) )
@@ -107,7 +111,7 @@ sub fret {
   $lc_inob->{'aud'} = 1;
   
   # Calculate target pitch
-  $lc_pitch = int($lc_inob->{'bas'} + $lc_fret + 0.2);
+  $lc_pitch = ($lc_inob->{'bas'} + $lc_fret);
   
   # Set to target pitch -- and return
   return $this->{'llev'}->set_pitch($lc_string,$lc_pitch);
@@ -245,6 +249,98 @@ sub play {
   return $lc_rawret;
 }
 
+sub outto {
+  # Finalize MIDI output and save it in the requested
+  # directory, creating the directory if necessary
+  #
+  # Return the complete filename of the output
+
+  my $this;
+  my $lc_dir; # Destination directory
+  my $lc_ext; # Required filename extension
+  my $lc_path; # Full output filename
+  my $lc_fh; # Output filehandle
+  my $lc_midi; # Finalized MIDI data
+
+  $this = shift(@_);
+  $lc_dir = shift(@_);
+
+  # Require a destination directory
+  if ( !defined($lc_dir) || $lc_dir eq '' )
+  {
+    die "\nNo output directory specified.\n";
+  }
+
+  # Create directory and reserve filename
+  make_path($lc_dir);
+  $lc_ext = $this->{'llev'}->capabilities()->{'extension'};
+  ($lc_path,$lc_fh) = _reserve_output_file($lc_dir,$lc_ext);
+
+  # Finalize the MIDI and save it as binary data
+  binmode($lc_fh) or die "\nCannot enable binary mode: $!\n";
+  $lc_midi = $this->{'llev'}->end();
+  print {$lc_fh} $lc_midi or die "\nCannot write $lc_path: $!\n";
+  close($lc_fh) or die "\nCannot close $lc_path: $!\n";
+
+  return $lc_path;
+}
+
+
+# ############### #
+# ##  HELPERS  ## #
+# ############### #
+
+sub _reserve_output_file {
+  # Reserve an unused timestamped filename in the
+  # specified directory, using the specified extension
+  #
+  # Return both the full filename and its open filehandle
+
+  my $lc_dir; # Destination directory
+  my $lc_ext; # Required filename extension
+  my $lc_stamp; # Current timestamp
+  my $lc_root; # Filename prefix
+  my $lc_path; # Full candidate filename
+  my $lc_number; # Collision suffix number
+  my $lc_ready; # Whether reservation succeeded
+  my $lc_fh; # Reserved filehandle
+
+  $lc_dir = shift(@_);
+  $lc_ext = shift(@_);
+
+  # Establish the original filename
+  $lc_stamp = strftime('%Y-%m%d-%H%M%S',localtime());
+  $lc_root = "out-$lc_stamp";
+  $lc_number = 1;
+  $lc_ready = 0;
+
+  # Keep trying candidate filenames until one
+  # has been successfully reserved
+  while ( !($lc_ready) )
+  {
+    # The first candidate has no numeric suffix
+    if ( $lc_number == 1 )
+    {
+      $lc_path = "$lc_dir/$lc_root.$lc_ext";
+    } else {
+      $lc_path = "$lc_dir/$lc_root-$lc_number.$lc_ext";
+    }
+
+    # Reserve this filename without permitting overwrite
+    $lc_ready = sysopen($lc_fh,$lc_path,O_WRONLY | O_CREAT | O_EXCL);
+
+    if ( !($lc_ready) )
+    {
+      # An existing filename warrants another attempt
+      # Any other failure is fatal
+      if ( $! != EEXIST ) { die "\nCannot create $lc_path: $!\n"; }
+
+      $lc_number = int($lc_number + 1.2);
+    }
+  }
+
+  return ($lc_path,$lc_fh);
+}
 
 
 1;
