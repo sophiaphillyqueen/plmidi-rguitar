@@ -13,6 +13,7 @@
 # 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+use Storable qw(dclone);
 use strict;
 
 sub new {
@@ -57,6 +58,8 @@ sub new {
   $lc_ret->{'neck'} = $lc_neck;
   $lc_ret->{'nsiz'} = ( scalar @$lc_rawneck );
   $lc_ret->{'bar'} = 0; # Where this measure begins
+  $lc_ret->{'pos'} = [0,0,0,0]; # Position within measure
+  $lc_ret->{'riff'} = {}; # Hash of all riffs
   
   # Constructing the low-level implementation object is
   # crucial --- and if it fails, then the construction
@@ -73,6 +76,136 @@ sub new {
   
   # Bless and return the new object.
   return bless ( $lc_ret, ( ref($this) || $this ) );
+}
+
+sub fret {
+  my $this;
+  my $lc_string; # Target string
+  my $lc_fret; # New fret
+  my $lc_fngr; # New finger
+  my $lc_inob; # String structure in this object
+  my $lc_pitch; # New pitch
+  $this = shift(@_);
+  $lc_string = shift(@_);
+  $lc_fret = shift(@_);
+  $lc_fngr = shift(@_);
+  
+  # Sooner die than re-fret a non-existent string.
+  if ( $lc_string < 0.5 ) { die "\nOut of bounds.\n"; }
+  if ( $lc_string > ( ( $this->{'nsiz'} ) + 0.5 ) ) { die "\nOut of bounds.\n"; }
+  
+  # Simplify reference to string's data
+  $lc_inob = $this->{'neck'}->[$lc_string];
+  
+  # Send note-off if necessary:
+  if ( $lc_fret != $lc_inob->{'fret'} ) { $this->{'llev'}->note_off($lc_string); }
+  if ( $lc_fngr ne $lc_inob->{'fngr'} ) { $this->{'llev'}->note_off($lc_string); }
+  
+  # Set new values:
+  $lc_inob->{'fret'} = $lc_fret;
+  $lc_inob->{'fngr'} = $lc_fngr;
+  $lc_inob->{'aud'} = 1;
+  
+  # Calculate target pitch
+  $lc_pitch = int($lc_inob->{'bas'} + $lc_fret + 0.2);
+  
+  # Set to target pitch -- and return
+  return $this->{'llev'}->set_pitch($lc_string,$lc_pitch);
+}
+
+sub ford {
+  my $this;
+  my $lc_at;
+  $this = shift(@_);
+  
+  $lc_at = shift(@_);
+  if ( defined $lc_at )
+  {
+    $this->{'pos'}->[0] = int($this->{'pos'}->[0] + $lc_at + 0.2);
+  }
+  
+  $lc_at = shift(@_);
+  if ( defined $lc_at )
+  {
+    $this->{'pos'}->[1] = int($this->{'pos'}->[1] + $lc_at + 0.2);
+  }
+  
+  $lc_at = shift(@_);
+  if ( defined $lc_at )
+  {
+    $this->{'pos'}->[2] = int($this->{'pos'}->[2] + $lc_at + 0.2);
+  }
+  
+  $lc_at = shift(@_);
+  if ( defined $lc_at )
+  {
+    $this->{'pos'}->[3] = int($this->{'pos'}->[3] + $lc_at + 0.2);
+  }
+  
+  while ( $this->{'pos'}->[3] > 3.5 )
+  {
+    $this->{'pos'}->[3] = int($this->{'pos'}->[3] - 3.8);
+    $this->{'pos'}->[2] = int($this->{'pos'}->[2] + 1.2);
+  }
+  
+  while ( $this->{'pos'}->[2] > 3.5 )
+  {
+    $this->{'pos'}->[2] = int($this->{'pos'}->[2] - 3.8);
+    $this->{'pos'}->[1] = int($this->{'pos'}->[1] + 1.2);
+  }
+  
+  while ( $this->{'pos'}->[1] > 3.5 )
+  {
+    $this->{'pos'}->[1] = int($this->{'pos'}->[1] - 3.8);
+    $this->{'pos'}->[0] = int($this->{'pos'}->[0] + 1.2);
+  }
+  
+  $this->to_trace();
+  
+  return dclone($this->{'pos'});
+}
+
+
+sub add_bar {
+  my $this;
+  my $lc_fford;
+  my $lc_idl;
+  $this = shift(@_);
+  $lc_fford = 0;
+  $lc_fford += ( $this->{'pos'}->[3] * 15 );
+  $lc_fford += ( $this->{'pos'}->[2] * 60 );
+  $lc_fford += ( $this->{'pos'}->[1] * 240 );
+  $lc_fford += ( $this->{'pos'}->[0] * 960 );
+  $lc_fford = int($lc_fford + 0.2);
+  $lc_idl = int($this->{'bar'} + $lc_fford + 0.2);
+  $this->{'bar'} = $lc_idl;
+  $this->{'pos'} = [0,0,0,0];
+  return $this->to_trace();
+}
+
+
+sub to_trace {
+  my $this;
+  my $lc_idl; # Where ticker should be
+  my $lc_at;  # Where ticker is
+  my $lc_must; # How far ticker must advance
+  $this = shift(@_);
+  $lc_idl = $this->{'bar'};
+  $lc_idl += ( $this->{'pos'}->[3] * 15 );
+  $lc_idl += ( $this->{'pos'}->[2] * 60 );
+  $lc_idl += ( $this->{'pos'}->[1] * 240 );
+  $lc_idl += ( $this->{'pos'}->[0] * 960 );
+  $lc_idl = int($lc_idl + 0.2);
+  $lc_at = $this->{'llev'}->ticks_forward();
+  if ( $lc_at > ( $lc_idl - 0.5 ) ) { return $lc_at; }
+  $lc_must = int(($lc_idl - $lc_at) + 0.2);
+  return $this->{'llev'}->ticks_forward($lc_must);
+}
+
+sub ticks_forward {
+  my $this;
+  $this = shift(@_);
+  return $this->{'llev'}->ticks_forward(@_);
 }
 
 
