@@ -250,13 +250,42 @@ sub play {
 }
 
 sub outto {
-  # Finalize MIDI output and save it in the requested
-  # directory, creating the directory if necessary
+  # Generate a timestamp and delegate the actual
+  # output operation to the internal method.
   #
-  # Return the complete filename of the output
+  # The default filename prefix is 'out'.
 
   my $this;
   my $lc_dir; # Destination directory
+  my $lc_prefix; # Output filename prefix
+  my $lc_stamp; # Generated timestamp
+
+  $this = shift(@_);
+  $lc_dir = shift(@_);
+  $lc_prefix = shift(@_);
+
+  if ( !defined($lc_prefix) ) { $lc_prefix = 'out'; }
+
+  $lc_stamp = _output_timestamp();
+  return $this->_outto($lc_dir,$lc_prefix,$lc_stamp);
+}
+
+
+# ############### #
+# ##  HELPERS  ## #
+# ############### #
+
+sub _outto {
+  # Finalize MIDI output and save it in the requested
+  # directory, creating the directory if necessary.
+  #
+  # The caller supplies the filename prefix and timestamp.
+  # Return the complete filename of the output.
+
+  my $this;
+  my $lc_dir; # Destination directory
+  my $lc_prefix; # Output filename prefix
+  my $lc_stamp; # Supplied timestamp
   my $lc_ext; # Required filename extension
   my $lc_path; # Full output filename
   my $lc_fh; # Output filehandle
@@ -264,19 +293,23 @@ sub outto {
 
   $this = shift(@_);
   $lc_dir = shift(@_);
+  $lc_prefix = shift(@_);
+  $lc_stamp = shift(@_);
 
-  # Require a destination directory
+  # Require a destination directory.
   if ( !defined($lc_dir) || $lc_dir eq '' )
   {
     die "\nNo output directory specified.\n";
   }
 
-  # Create directory and reserve filename
+  # Create directory and reserve filename.
   make_path($lc_dir);
   $lc_ext = $this->{'llev'}->capabilities()->{'extension'};
-  ($lc_path,$lc_fh) = _reserve_output_file($lc_dir,$lc_ext);
+  ($lc_path,$lc_fh) = _reserve_output_file(
+    $lc_dir,$lc_ext,$lc_prefix,$lc_stamp
+  );
 
-  # Finalize the MIDI and save it as binary data
+  # Finalize the MIDI and save it as binary data.
   binmode($lc_fh) or die "\nCannot enable binary mode: $!\n";
   $lc_midi = $this->{'llev'}->end();
   print {$lc_fh} $lc_midi or die "\nCannot write $lc_path: $!\n";
@@ -285,21 +318,23 @@ sub outto {
   return $lc_path;
 }
 
-
-# ############### #
-# ##  HELPERS  ## #
-# ############### #
+sub _output_timestamp {
+  # Generate a timestamp for output filenames.
+  return strftime('%Y-%m%d-%H%M%S',localtime());
+}
 
 sub _reserve_output_file {
   # Reserve an unused timestamped filename in the
-  # specified directory, using the specified extension
+  # specified directory, using the specified extension,
+  # prefix, and timestamp.
   #
-  # Return both the full filename and its open filehandle
+  # Return both the full filename and its open filehandle.
 
   my $lc_dir; # Destination directory
   my $lc_ext; # Required filename extension
-  my $lc_stamp; # Current timestamp
-  my $lc_root; # Filename prefix
+  my $lc_prefix; # Output filename prefix
+  my $lc_stamp; # Supplied timestamp
+  my $lc_root; # Filename prefix with timestamp
   my $lc_path; # Full candidate filename
   my $lc_number; # Collision suffix number
   my $lc_ready; # Whether reservation succeeded
@@ -307,18 +342,19 @@ sub _reserve_output_file {
 
   $lc_dir = shift(@_);
   $lc_ext = shift(@_);
+  $lc_prefix = shift(@_);
+  $lc_stamp = shift(@_);
 
-  # Establish the original filename
-  $lc_stamp = strftime('%Y-%m%d-%H%M%S',localtime());
-  $lc_root = "out-$lc_stamp";
+  # Establish the original filename.
+  $lc_root = "$lc_prefix-$lc_stamp";
   $lc_number = 1;
   $lc_ready = 0;
 
   # Keep trying candidate filenames until one
-  # has been successfully reserved
+  # has been successfully reserved.
   while ( !($lc_ready) )
   {
-    # The first candidate has no numeric suffix
+    # The first candidate has no numeric suffix.
     if ( $lc_number == 1 )
     {
       $lc_path = "$lc_dir/$lc_root.$lc_ext";
@@ -326,13 +362,13 @@ sub _reserve_output_file {
       $lc_path = "$lc_dir/$lc_root-$lc_number.$lc_ext";
     }
 
-    # Reserve this filename without permitting overwrite
+    # Reserve this filename without permitting overwrite.
     $lc_ready = sysopen($lc_fh,$lc_path,O_WRONLY | O_CREAT | O_EXCL);
 
     if ( !($lc_ready) )
     {
-      # An existing filename warrants another attempt
-      # Any other failure is fatal
+      # An existing filename warrants another attempt.
+      # Any other failure is fatal.
       if ( $! != EEXIST ) { die "\nCannot create $lc_path: $!\n"; }
 
       $lc_number = int($lc_number + 1.2);
