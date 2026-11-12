@@ -467,6 +467,82 @@ sub load_chords {
   };
 }
 
+sub audstr {
+  # Returns an arrayref containing the 1-based numbers
+  # of all strings whose 'aud' field is true.
+  # Does not modify the neck.
+
+  my $this;
+  my $lc_ret;
+  my $lc_each;
+
+  $this = shift(@_);
+  $lc_ret = [];
+
+  foreach $lc_each (1 .. $this->{'nsiz'})
+  {
+    if ( $this->{'neck'}->[$lc_each]->{'aud'} )
+    {
+      push(@$lc_ret,$lc_each);
+    }
+  }
+
+  return $lc_ret;
+}
+
+sub raudstr {
+  # Returns the audible string numbers in reverse order.
+
+  my $this;
+  my $lc_ret;
+
+  $this = shift(@_);
+  $lc_ret = $this->audstr();
+
+  return [ reverse(@$lc_ret) ];
+}
+
+sub tochord {
+  # Changes the guitar's neck to the named chord.
+  # Undefined, empty, or '-' means no change.
+  # Returns an arrayref of audible string numbers.
+  # Unknown chord names cause a fatal error.
+
+  my $this;
+  my $lc_nom;
+  my $lc_chord;
+  my $lc_each;
+  my $lc_string;
+  my $lc_call;
+
+  $this = shift(@_);
+  $lc_nom = shift(@_);
+
+  # Reserved values leave the neck unchanged.
+  if ( !defined($lc_nom) ) { return $this->audstr(); }
+  if ( $lc_nom eq '' || $lc_nom eq '-' ) { return $this->audstr(); }
+
+  # An unknown chord is a fatal error.
+  if ( !exists($this->{'chord'}->{$lc_nom}) )
+  {
+    $lc_call = [caller(0)];
+    die "Unknown chord '$lc_nom' (called from "
+      . $lc_call->[1] . " line " . $lc_call->[2]
+      . "): define the chord or correct the call.\n";
+  }
+  $lc_chord = $this->{'chord'}->{$lc_nom};
+
+  # Apply the fret and fingering first, then audibility.
+  foreach $lc_each (1 .. $this->{'nsiz'})
+  {
+    $lc_string = $lc_chord->[$lc_each - 1];
+    $this->fret($lc_each,$lc_string->{'fret'},$lc_string->{'fngr'});
+    $this->{'neck'}->[$lc_each]->{'aud'} = $lc_string->{'aud'};
+  }
+
+  return $this->audstr();
+}
+
 
 
 # ############### #
