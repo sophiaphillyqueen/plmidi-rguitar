@@ -18,6 +18,7 @@ use File::Path qw(make_path);
 use Fcntl qw(O_WRONLY O_CREAT O_EXCL);
 use Errno qw(EEXIST);
 use POSIX qw(strftime);
+use Scalar::Util qw(reftype blessed);
 use strict;
 
 sub new {
@@ -64,6 +65,7 @@ sub new {
   $lc_ret->{'bar'} = 0; # Where this measure begins
   $lc_ret->{'pos'} = [0,0,0,0]; # Position within measure
   $lc_ret->{'riff'} = {}; # Hash of all riffs
+  $lc_ret->{'chord'} = {}; # Chord catalog
   
   # Constructing the low-level implementation object is
   # crucial --- and if it fails, then the construction
@@ -270,10 +272,429 @@ sub outto {
   return $this->_outto($lc_dir,$lc_prefix,$lc_stamp);
 }
 
+sub doriff {
+  # This method plays a riff. The first argument is
+  # the name of a riff registered to this object.
+  # All further arguments get forwarded to the riff
+  # function after the reference to this object itself.
+  #
+  # This function returns a hashref. In the event
+  # of failure, that hashref's `ok` field is either
+  # absent or present with a value of `0`. In the
+  # event of success, the hashref's `ok` field is
+  # present with a value of `1`, and the `ret` field
+  # contains the return-value of the riff function.
+  my $this;
+  my $lc_nom;
+  my $lc_code;
+  my $lc_ret;
+  
+  # Get stuff from the arguments.
+  $this = shift(@_);
+  $lc_nom = shift(@_);
+  
+  # Obtain and validate the code.
+  if ( !defined($lc_nom) ) { return { }; }
+  if ( ( reftype($lc_nom) // '' ) ne '' ) { return { }; }
+  if ( $lc_nom eq '' ) { return { }; }
+  $lc_code = $this->{'riff'}->{$lc_nom};
+  if ( ( reftype($lc_code) // '' ) ne 'CODE' ) { return { }; }
+  
+  # Play the riff and go home.
+  $lc_ret = &$lc_code($this,@_);
+  return { 'ok' => 1, 'ret' => $lc_ret, };
+}
+
+sub setriff {
+  # Adds a riff to the object from an already-present
+  # possibly-anonymous function.
+  #
+  # First argument specifies the name of the riff, and
+  # the second argument is the coderef.
+  #
+  # The return value is a hashref in which the field `ok`
+  # has a value of `1` for success, and is either absent
+  # or with a value of `0` for failure.
+  my $this;
+  my $lc_name;
+  my $lc_code;
+  
+  # Get stuff from the arguments:
+  $this = shift(@_);
+  $lc_name = shift(@_);
+  $lc_code = shift(@_);
+  
+  # Make sure we got valid stuff.
+  if ( !(defined($lc_name)) ) { return { }; }
+  if ( reftype($lc_name) ) { return { }; }
+  if ( $lc_name eq '' ) { return { }; }
+  if ( ( reftype($lc_code) // '' ) ne 'CODE' ) { return { }; }
+  
+  # Now we register the riff and go home.
+  $this->{'riff'}->{$lc_name} = $lc_code;
+  return { 'ok' => 1, };
+}
+
+sub doriff {
+  # Plays a riff based on the name.
+  my $this;
+  my $lc_nom;
+  my $lc_code;
+  my $lc_ret;
+  
+  # First we get the argumentary
+  $this = shift(@_);
+  $lc_nom = shift(@_);
+  
+  # Let us validate the name.
+  if ( !defined($lc_nom) ) { return { }; }
+  if ( reftype($lc_nom) ) { return { }; }
+  if ( $lc_nom eq '' ) { return { }; }
+  
+  # Now we validate the riff function
+  $lc_code = $this->{'riff'}->{$lc_nom};
+  if ( ( reftype($lc_code) // '' ) ne 'CODE' ) { return { }; }
+  
+  # And if we are still here, we play the riff and go home.
+  $lc_ret = &$lc_code($this,@_);
+  return { 'ok' => 1, 'ret' => $lc_ret, };
+}
+
+sub enterchord {
+  # This method enters a chord into the object's
+  # chord catalog.
+  my $this;
+  my $lc_rchord;
+  my $lc_call;
+  my $lc_cneck;
+  my $lc_names;
+  my $lc_each;
+  
+  # First, we get the argumentary
+  $this = shift(@_);
+  $lc_rchord = shift(@_);
+  $lc_call = shift(@_);
+  if ( !defined($lc_call) ) { $lc_call = [caller(0)]; }
+  
+  # Then we validate the chord.
+  if ( !($this->_valid_chord($lc_rchord,$lc_call)) )
+  {
+    return 0;
+  }
+  
+  # And we scrub the chord.
+  $lc_cneck = _scrub_chord($lc_rchord->{'neck'});
+  $lc_names = $lc_rchord->{'nomx'};
+  
+  # And we add the chord.
+  foreach $lc_each (@$lc_names)
+  {
+    $this->{'chord'}->{$lc_each} = $lc_cneck;
+  }
+  
+  # If we got this far, it was a success.
+  return 1;
+}
+
+sub load_chords {
+  # Loads a JSON chord catalog into this instrument.
+  # First argument: filename; second: optional options hashref.
+  #
+  # On success, returns a hashref with 'ok' => 1,
+  # and counts of loaded and rejected chord entries.
+  # On failure to load the file, returns { 'ok' => 0 }.
+
+  my $this;
+  my $lc_filename;
+  my $lc_options;
+  my $lc_call;
+  my $lc_raw;
+  my $lc_chord;
+  my $lc_loaded;
+  my $lc_rejected;
+  my $lc_index;
+
+  $this = shift(@_);
+  $lc_filename = shift(@_);
+  $lc_call = [caller(0)];
+
+  # Invalid options are survivable, but merit a warning.
+  if ( @_ )
+  {
+    $lc_options = shift(@_);
+    if ( ( reftype($lc_options) // '' ) ne 'HASH' )
+    {
+      warn "load_chords (called from $lc_call->[1] line $lc_call->[2]): invalid options hash; using empty options.\n";
+      $lc_options = {};
+    }
+  } else {
+    $lc_options = {};
+  }
+
+  # The filename must be a nonempty scalar.
+  if ( !defined($lc_filename) || reftype($lc_filename) || $lc_filename eq '' )
+  {
+    warn "load_chords (called from $lc_call->[1] line $lc_call->[2]): invalid filename.\n";
+    return { 'ok' => 0, };
+  }
+
+  # Load and check the basic JSON catalog structure.
+  $lc_raw = _load_crd_json($lc_filename,$lc_call);
+  if ( !($lc_raw->{'ok'}) ) { return { 'ok' => 0, }; }
+
+  # Register each chord entry independently.
+  $lc_loaded = 0;
+  $lc_rejected = 0;
+  $lc_index = 0;
+
+  foreach $lc_chord (@{$lc_raw->{'val'}->{'crdx'}})
+  {
+    $lc_index = int($lc_index + 1.2);
+
+    if ( $this->enterchord($lc_chord,$lc_call) )
+    {
+      $lc_loaded = int($lc_loaded + 1.2);
+    } else {
+      warn "Chord catalog '$lc_filename': entry $lc_index rejected.\n";
+      $lc_rejected = int($lc_rejected + 1.2);
+    }
+  }
+
+  return {
+    'ok' => 1,
+    'loaded' => $lc_loaded,
+    'rejected' => $lc_rejected,
+  };
+}
+
+
 
 # ############### #
 # ##  HELPERS  ## #
 # ############### #
+
+sub _scrub_chord {
+  # Accepts a validated `neck` arrayref.
+  # Returns a new arrayref containing only the
+  # `fret`, `fngr`, and `aud` fields of each string.
+  # Does not modify the original.
+
+  my $lc_neck;
+  my $lc_ret;
+  my $lc_each;
+
+  $lc_neck = shift(@_);
+  $lc_ret = [];
+
+  foreach $lc_each (@$lc_neck)
+  {
+    push(@$lc_ret,{
+      'fret' => $lc_each->{'fret'},
+      'fngr' => $lc_each->{'fngr'},
+      'aud' => $lc_each->{'aud'},
+    });
+  }
+
+  return $lc_ret;
+}
+
+sub _valid_chord {
+  # Validates one chord catalog entry for this guitar.
+  # First argument: the proposed chord entry.
+  # Second argument: arrayref containing caller() information.
+  #
+  # Returns 1 if valid, 0 otherwise.
+  # Does not modify the entry.
+
+  my $this;
+  my $lc_entry;
+  my $lc_caller;
+  my $lc_where;
+  my $lc_field;
+  my $lc_name;
+  my $lc_string;
+  my $lc_index;
+
+  $this = shift(@_);
+  $lc_entry = shift(@_);
+  $lc_caller = shift(@_);
+
+  $lc_where = "Chord validation (called from "
+    . $lc_caller->[1] . " line " . $lc_caller->[2] . "): ";
+
+  # Check the basic structure of the chord entry.
+  if ( ( reftype($lc_entry) // '' ) ne 'HASH' )
+  {
+    warn "${lc_where}entry must be a hash.\n";
+    return 0;
+  }
+
+  foreach $lc_field ('nomx','neck')
+  {
+    if ( ( reftype($lc_entry->{$lc_field}) // '' ) ne 'ARRAY' )
+    {
+      warn "${lc_where}'$lc_field' must be an array.\n";
+      return 0;
+    }
+  }
+
+  # There must be at least one valid chord name.
+  if ( !@{$lc_entry->{'nomx'}} )
+  {
+    warn "${lc_where}'nomx' must contain at least one name.\n";
+    return 0;
+  }
+
+  foreach $lc_name (@{$lc_entry->{'nomx'}})
+  {
+    if ( !defined($lc_name) || reftype($lc_name) || $lc_name eq '' || $lc_name eq '-' )
+    {
+      warn "${lc_where}invalid chord name in 'nomx'.\n";
+      return 0;
+    }
+  }
+
+  # The number of strings must match this guitar.
+  if ( @{$lc_entry->{'neck'}} != $this->{'nsiz'} )
+  {
+    warn "${lc_where}'neck' must contain $this->{'nsiz'} strings.\n";
+    return 0;
+  }
+
+  # Validate each string's required fields.
+  $lc_index = 0;
+  foreach $lc_string (@{$lc_entry->{'neck'}})
+  {
+    $lc_index = int($lc_index + 1.2);
+
+    if ( ( reftype($lc_string) // '' ) ne 'HASH' )
+    {
+      warn "${lc_where}string $lc_index must be a hash.\n";
+      return 0;
+    }
+
+    foreach $lc_field ('fret','fngr','aud')
+    {
+      if ( !exists($lc_string->{$lc_field}) )
+      {
+        warn "${lc_where}string $lc_index missing '$lc_field'.\n";
+        return 0;
+      }
+    }
+
+    # Fret must be a nonnegative integer.
+    if ( !defined($lc_string->{'fret'}) || reftype($lc_string->{'fret'}) || $lc_string->{'fret'} !~ /\A[0-9]+\z/ )
+    {
+      warn "${lc_where}string $lc_index: invalid 'fret'.\n";
+      return 0;
+    }
+
+    # Fingering must be nonempty, printable Unicode,
+    # without leading or trailing spaces.
+    if ( !defined($lc_string->{'fngr'}) || reftype($lc_string->{'fngr'}) ||
+         $lc_string->{'fngr'} !~ /\A[[:print:]]+\z/u ||
+         $lc_string->{'fngr'} =~ /\A | \z/ )
+    {
+      warn "${lc_where}string $lc_index: invalid 'fngr'.\n";
+      return 0;
+    }
+
+    # Audibility must be either 0 or 1.
+    if ( !defined($lc_string->{'aud'}) || reftype($lc_string->{'aud'}) ||
+         ( $lc_string->{'aud'} ne '0' && $lc_string->{'aud'} ne '1' ) )
+    {
+      warn "${lc_where}string $lc_index: invalid 'aud'.\n";
+      return 0;
+    }
+  }
+
+  return 1;
+}
+
+sub _load_crd_json {
+  # Does the same as `_load_json()` --- except it will
+  # declare it a failure if the file does not have the
+  # basic structure of a chord catalog.
+  
+  my $lc_ret;
+  
+  # If `_load_json()` fails, not much to do.
+  $lc_ret = _load_json(@_);
+  if ( !($lc_ret->{'ok'}) ) { return $lc_ret; }
+  $lc_ret->{'loaded_json'} = 1;
+  
+  # The loaded file needs to be a hash.
+  if ( ( reftype($lc_ret->{'val'}) // '' ) ne 'HASH' )
+  {
+    $lc_ret->{'ok'} = 0;
+    warn "Chord catalog '$_[0]' (called from " . $_[1]->[1] . " line " . $_[1]->[2] . "): top-level JSON value must be a hash.\n";
+    return $lc_ret;
+  }
+  
+  # The loaded file needs to have a hash titled 'meta'
+  if ( ( reftype($lc_ret->{'val'}->{'meta'}) // '' ) ne 'HASH' )
+  {
+    $lc_ret->{'ok'} = 0;
+    warn "Chord catalog '$_[0]' (called from " . $_[1]->[1] . " line " . $_[1]->[2] . "): top-level JSON hash must contain hash within called 'meta'.\n";
+    return $lc_ret;
+  }
+  
+  # The loaded file needs to have an array titled 'crdx'
+  if ( ( reftype($lc_ret->{'val'}->{'crdx'}) // '' ) ne 'ARRAY' )
+  {
+    $lc_ret->{'ok'} = 0;
+    warn "Chord catalog '$_[0]' (called from " . $_[1]->[1] . " line " . $_[1]->[2] . "): top-level JSON hash must contain array called 'crdx'.\n";
+    return $lc_ret;
+  }
+  
+  # If we passed --- THEN GREAT!!!!
+  return $lc_ret;
+}
+
+sub _load_json {
+  # First argument: filename of a JSON file.
+  # Second argument: arrayref containing caller() information.
+  #
+  # Returns { 'ok' => 1, 'val' => ... } on success.
+  # On any failure, issues a warning and returns {}.
+
+  my $lc_filename;
+  my $lc_caller;
+  my $lc_value;
+  my $lc_error;
+
+  $lc_filename = shift(@_);
+  $lc_caller = shift(@_);
+
+  # Read and decode the file, catching all failures.
+  $lc_value = eval {
+    my $lc2_fh;
+    my $lc2_raw;
+
+    open($lc2_fh,'<:raw',$lc_filename)
+      or die "Cannot open file: $!\n";
+
+    local $/;
+    $lc2_raw = <$lc2_fh>;
+    if ( !defined($lc2_raw) ) { die "Cannot read file: $!\n"; }
+
+    close($lc2_fh) or die "Cannot close file: $!\n";
+
+    JSON::PP->new->utf8->decode($lc2_raw);
+  };
+
+  # Report any error without terminating the program.
+  $lc_error = $@;
+  if ( $lc_error ne '' )
+  {
+    chomp($lc_error);
+    warn "JSON file '$lc_filename' (called from $lc_caller->[1] line $lc_caller->[2]): $lc_error\n";
+    return { };
+  }
+
+  # Return the successfully decoded JSON.
+  return { 'ok' => 1, 'val' => $lc_value, };
+}
 
 sub _outto {
   # Finalize MIDI output and save it in the requested
