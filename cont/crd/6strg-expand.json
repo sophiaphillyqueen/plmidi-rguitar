@@ -1,0 +1,5467 @@
+{
+  "meta": {
+    "instrument": "six-string guitar",
+    "tuning": [
+      "E2",
+      "A2",
+      "D3",
+      "G3",
+      "B3",
+      "E4"
+    ],
+    "description": "Voicings that satisfy chord tones overall but not the complete non-bass rule, plus preparatory forms whose parent or destination is in this expansion.",
+    "chord_types": [
+      "major",
+      "minor",
+      "major seventh",
+      "dominant seventh",
+      "minor seventh"
+    ],
+    "string_order": "low E to high E; 1-based controller index ascending",
+    "fngr_convention": "0=open; -=muted; 1=index; 2=middle; 3=ring; 4=pinky; repeated finger on same fret represents barre"
+  },
+  "crdx": [
+    {
+      "nomx": [
+        "Cmaj7",
+        "1Cmaj7",
+        "Cmaj7/C",
+        "Cmaj7/B#",
+        "1Cmaj7/C",
+        "1Cmaj7/B#",
+        "Cmaj7//C",
+        "Cmaj7//B#",
+        "1Cmaj7//C",
+        "1Cmaj7//B#",
+        "Cmaj7//E",
+        "Cmaj7//Fb",
+        "1Cmaj7//E",
+        "1Cmaj7//Fb",
+        "Cmaj7//G",
+        "1Cmaj7//G"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Cmaj7/B",
+        "2Cmaj7/Cb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 9,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Cmaj7//B",
+        "2Cmaj7//Cb"
+      ],
+      "neck": [
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Cm7",
+        "1Cm7",
+        "Cm7/C",
+        "Cm7/B#",
+        "1Cm7/C",
+        "1Cm7/B#",
+        "Cm7//C",
+        "Cm7//B#",
+        "1Cm7//C",
+        "1Cm7//B#",
+        "Cm7//G",
+        "1Cm7//G",
+        "Cm7//Bb",
+        "Cm7//A#",
+        "1Cm7//Bb",
+        "1Cm7//A#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Cm7/Bb",
+        "2Cm7/A#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Cm7//Bb",
+        "2Cm7//A#"
+      ],
+      "neck": [
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "C#maj7",
+        "1C#maj7",
+        "Dbmaj7",
+        "1Dbmaj7",
+        "C#maj7/C#",
+        "C#maj7/Db",
+        "1C#maj7/C#",
+        "1C#maj7/Db",
+        "Dbmaj7/C#",
+        "Dbmaj7/Db",
+        "1Dbmaj7/C#",
+        "1Dbmaj7/Db",
+        "C#maj7//C#",
+        "C#maj7//Db",
+        "1C#maj7//C#",
+        "1C#maj7//Db",
+        "Dbmaj7//C#",
+        "Dbmaj7//Db",
+        "1Dbmaj7//C#",
+        "1Dbmaj7//Db",
+        "C#maj7//Ab",
+        "C#maj7//G#",
+        "1C#maj7//Ab",
+        "1C#maj7//G#",
+        "Dbmaj7//Ab",
+        "Dbmaj7//G#",
+        "1Dbmaj7//Ab",
+        "1Dbmaj7//G#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2C#maj7/C",
+        "2C#maj7/B#",
+        "2Dbmaj7/C",
+        "2Dbmaj7/B#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 10,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2C#maj7//C",
+        "2C#maj7//B#",
+        "2Dbmaj7//C",
+        "2Dbmaj7//B#"
+      ],
+      "neck": [
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "C#m7",
+        "1C#m7",
+        "Dbm7",
+        "1Dbm7",
+        "C#m7/C#",
+        "C#m7/Db",
+        "1C#m7/C#",
+        "1C#m7/Db",
+        "Dbm7/C#",
+        "Dbm7/Db",
+        "1Dbm7/C#",
+        "1Dbm7/Db",
+        "C#m7//C#",
+        "C#m7//Db",
+        "1C#m7//C#",
+        "1C#m7//Db",
+        "Dbm7//C#",
+        "Dbm7//Db",
+        "1Dbm7//C#",
+        "1Dbm7//Db",
+        "C#m7//E",
+        "C#m7//Fb",
+        "1C#m7//E",
+        "1C#m7//Fb",
+        "Dbm7//E",
+        "Dbm7//Fb",
+        "1Dbm7//E",
+        "1Dbm7//Fb",
+        "C#m7//Ab",
+        "C#m7//G#",
+        "1C#m7//Ab",
+        "1C#m7//G#",
+        "Dbm7//Ab",
+        "Dbm7//G#",
+        "1Dbm7//Ab",
+        "1Dbm7//G#",
+        "C#m7//B",
+        "C#m7//Cb",
+        "1C#m7//B",
+        "1C#m7//Cb",
+        "Dbm7//B",
+        "Dbm7//Cb",
+        "1Dbm7//B",
+        "1Dbm7//Cb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2C#m7/B",
+        "2C#m7/Cb",
+        "2Dbm7/B",
+        "2Dbm7/Cb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2C#m7//B",
+        "2C#m7//Cb",
+        "2Dbm7//B",
+        "2Dbm7//Cb"
+      ],
+      "neck": [
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Dmaj7",
+        "1Dmaj7",
+        "Dmaj7/D",
+        "1Dmaj7/D",
+        "Dmaj7//D",
+        "1Dmaj7//D",
+        "Dmaj7//C#",
+        "Dmaj7//Db",
+        "1Dmaj7//C#",
+        "1Dmaj7//Db",
+        "Dmaj7//A",
+        "1Dmaj7//A"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Dmaj7/C#",
+        "2Dmaj7/Db"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 11,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Dmaj7//C#",
+        "2Dmaj7//Db"
+      ],
+      "neck": [
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 12,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Dm7",
+        "1Dm7",
+        "Dm7/D",
+        "1Dm7/D",
+        "Dm7//D",
+        "1Dm7//D",
+        "Dm7//C",
+        "Dm7//B#",
+        "1Dm7//C",
+        "1Dm7//B#",
+        "Dm7//A",
+        "1Dm7//A"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Dm7/C",
+        "2Dm7/B#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Dm7//C",
+        "2Dm7//B#"
+      ],
+      "neck": [
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 12,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Ebmaj7",
+        "1Ebmaj7",
+        "D#maj7",
+        "1D#maj7",
+        "Ebmaj7/Eb",
+        "Ebmaj7/D#",
+        "1Ebmaj7/Eb",
+        "1Ebmaj7/D#",
+        "D#maj7/Eb",
+        "D#maj7/D#",
+        "1D#maj7/Eb",
+        "1D#maj7/D#",
+        "Ebmaj7//Eb",
+        "Ebmaj7//D#",
+        "1Ebmaj7//Eb",
+        "1Ebmaj7//D#",
+        "D#maj7//Eb",
+        "D#maj7//D#",
+        "1D#maj7//Eb",
+        "1D#maj7//D#",
+        "Ebmaj7//Bb",
+        "Ebmaj7//A#",
+        "1Ebmaj7//Bb",
+        "1Ebmaj7//A#",
+        "D#maj7//Bb",
+        "D#maj7//A#",
+        "1D#maj7//Bb",
+        "1D#maj7//A#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Ebmaj7/D",
+        "2D#maj7/D"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 12,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 12,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Ebmaj7//D",
+        "2D#maj7//D"
+      ],
+      "neck": [
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 13,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 12,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 12,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Ebm7",
+        "1Ebm7",
+        "D#m7",
+        "1D#m7",
+        "Ebm7/Eb",
+        "Ebm7/D#",
+        "1Ebm7/Eb",
+        "1Ebm7/D#",
+        "D#m7/Eb",
+        "D#m7/D#",
+        "1D#m7/Eb",
+        "1D#m7/D#",
+        "Ebm7//Eb",
+        "Ebm7//D#",
+        "1Ebm7//Eb",
+        "1Ebm7//D#",
+        "D#m7//Eb",
+        "D#m7//D#",
+        "1D#m7//Eb",
+        "1D#m7//D#",
+        "Ebm7//C#",
+        "Ebm7//Db",
+        "1Ebm7//C#",
+        "1Ebm7//Db",
+        "D#m7//C#",
+        "D#m7//Db",
+        "1D#m7//C#",
+        "1D#m7//Db",
+        "Ebm7//Bb",
+        "Ebm7//A#",
+        "1Ebm7//Bb",
+        "1Ebm7//A#",
+        "D#m7//Bb",
+        "D#m7//A#",
+        "1D#m7//Bb",
+        "1D#m7//A#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Ebm7/C#",
+        "2Ebm7/Db",
+        "2D#m7/C#",
+        "2D#m7/Db"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Ebm7//C#",
+        "2Ebm7//Db",
+        "2D#m7//C#",
+        "2D#m7//Db"
+      ],
+      "neck": [
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 13,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Emaj7/Eb",
+        "Emaj7/D#",
+        "1Emaj7/Eb",
+        "1Emaj7/D#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Emaj7//Eb",
+        "Emaj7//D#",
+        "1Emaj7//Eb",
+        "1Emaj7//D#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Emaj7",
+        "2Emaj7/E",
+        "2Emaj7/Fb",
+        "2Emaj7//E",
+        "2Emaj7//Fb",
+        "2Emaj7//B",
+        "2Emaj7//Cb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Em7/D",
+        "1Em7/D"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Em7//D",
+        "1Em7//D"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Em7",
+        "2Em7/E",
+        "2Em7/Fb",
+        "2Em7//E",
+        "2Em7//Fb",
+        "2Em7//D",
+        "2Em7//B",
+        "2Em7//Cb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "F/A",
+        "1F/A"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "F//A",
+        "1F//A"
+      ],
+      "neck": [
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Fmaj7",
+        "1Fmaj7",
+        "Fmaj7/F",
+        "Fmaj7/E#",
+        "1Fmaj7/F",
+        "1Fmaj7/E#",
+        "Fmaj7//F",
+        "Fmaj7//E#",
+        "1Fmaj7//F",
+        "1Fmaj7//E#",
+        "Fmaj7//C",
+        "Fmaj7//B#",
+        "1Fmaj7//C",
+        "1Fmaj7//B#",
+        "Fmaj7//A",
+        "1Fmaj7//A"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Fm7/Eb",
+        "Fm7/D#",
+        "1Fm7/Eb",
+        "1Fm7/D#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Fm7//Eb",
+        "Fm7//D#",
+        "1Fm7//Eb",
+        "1Fm7//D#"
+      ],
+      "neck": [
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Fm7",
+        "2Fm7/F",
+        "2Fm7/E#",
+        "2Fm7//F",
+        "2Fm7//E#",
+        "2Fm7//C",
+        "2Fm7//B#",
+        "2Fm7//Eb",
+        "2Fm7//D#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "F#/Bb",
+        "F#/A#",
+        "1F#/Bb",
+        "1F#/A#",
+        "Gb/Bb",
+        "Gb/A#",
+        "1Gb/Bb",
+        "1Gb/A#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 3,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "F#//Bb",
+        "F#//A#",
+        "1F#//Bb",
+        "1F#//A#",
+        "Gb//Bb",
+        "Gb//A#",
+        "1Gb//Bb",
+        "1Gb//A#"
+      ],
+      "neck": [
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "F#maj7/F",
+        "F#maj7/E#",
+        "1F#maj7/F",
+        "1F#maj7/E#",
+        "Gbmaj7/F",
+        "Gbmaj7/E#",
+        "1Gbmaj7/F",
+        "1Gbmaj7/E#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 3,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "F#maj7//F",
+        "F#maj7//E#",
+        "1F#maj7//F",
+        "1F#maj7//E#",
+        "Gbmaj7//F",
+        "Gbmaj7//E#",
+        "1Gbmaj7//F",
+        "1Gbmaj7//E#"
+      ],
+      "neck": [
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2F#maj7",
+        "2Gbmaj7",
+        "2F#maj7/F#",
+        "2F#maj7/Gb",
+        "2Gbmaj7/F#",
+        "2Gbmaj7/Gb",
+        "2F#maj7//F#",
+        "2F#maj7//Gb",
+        "2Gbmaj7//F#",
+        "2Gbmaj7//Gb",
+        "2F#maj7//C#",
+        "2F#maj7//Db",
+        "2Gbmaj7//C#",
+        "2Gbmaj7//Db"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2F#m7",
+        "2Gbm7",
+        "2F#m7/F#",
+        "2F#m7/Gb",
+        "2Gbm7/F#",
+        "2Gbm7/Gb",
+        "2F#m7//F#",
+        "2F#m7//Gb",
+        "2Gbm7//F#",
+        "2Gbm7//Gb",
+        "2F#m7//C#",
+        "2F#m7//Db",
+        "2Gbm7//C#",
+        "2Gbm7//Db",
+        "2F#m7//E",
+        "2F#m7//Fb",
+        "2Gbm7//E",
+        "2Gbm7//Fb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "G/D",
+        "1G/D"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "4",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "G//D",
+        "1G//D"
+      ],
+      "neck": [
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "4",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2G/B",
+        "2G/Cb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 4,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2G//B",
+        "2G//Cb"
+      ],
+      "neck": [
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Gmaj7/D",
+        "1Gmaj7/D"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Gmaj7//D",
+        "1Gmaj7//D"
+      ],
+      "neck": [
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Gmaj7/F#",
+        "2Gmaj7/Gb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 4,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Gmaj7//F#",
+        "2Gmaj7//Gb"
+      ],
+      "neck": [
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Gm7/F",
+        "Gm7/E#",
+        "1Gm7/F",
+        "1Gm7/E#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Gm7//F",
+        "Gm7//E#",
+        "1Gm7//F",
+        "1Gm7//E#"
+      ],
+      "neck": [
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Gm7",
+        "2Gm7/G",
+        "2Gm7//G",
+        "2Gm7//D",
+        "2Gm7//F",
+        "2Gm7//E#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 12,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Abmaj7/G",
+        "1Abmaj7/G",
+        "G#maj7/G",
+        "1G#maj7/G"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 5,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Abmaj7//G",
+        "1Abmaj7//G",
+        "G#maj7//G",
+        "1G#maj7//G"
+      ],
+      "neck": [
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Abmaj7",
+        "2G#maj7",
+        "2Abmaj7/Ab",
+        "2Abmaj7/G#",
+        "2G#maj7/Ab",
+        "2G#maj7/G#",
+        "2Abmaj7//Ab",
+        "2Abmaj7//G#",
+        "2G#maj7//Ab",
+        "2G#maj7//G#",
+        "2Abmaj7//Eb",
+        "2Abmaj7//D#",
+        "2G#maj7//Eb",
+        "2G#maj7//D#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 13,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 12,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 13,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Abm7/F#",
+        "Abm7/Gb",
+        "1Abm7/F#",
+        "1Abm7/Gb",
+        "G#m7/F#",
+        "G#m7/Gb",
+        "1G#m7/F#",
+        "1G#m7/Gb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Abm7//F#",
+        "Abm7//Gb",
+        "1Abm7//F#",
+        "1Abm7//Gb",
+        "G#m7//F#",
+        "G#m7//Gb",
+        "1G#m7//F#",
+        "1G#m7//Gb"
+      ],
+      "neck": [
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Abm7",
+        "2G#m7",
+        "2Abm7/Ab",
+        "2Abm7/G#",
+        "2G#m7/Ab",
+        "2G#m7/G#",
+        "2Abm7//Ab",
+        "2Abm7//G#",
+        "2G#m7//Ab",
+        "2G#m7//G#",
+        "2Abm7//Eb",
+        "2Abm7//D#",
+        "2G#m7//Eb",
+        "2G#m7//D#",
+        "2Abm7//F#",
+        "2Abm7//Gb",
+        "2G#m7//F#",
+        "2G#m7//Gb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 13,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 12,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Amaj7",
+        "1Amaj7",
+        "Amaj7/A",
+        "1Amaj7/A",
+        "Amaj7//A",
+        "1Amaj7//A",
+        "Amaj7//E",
+        "Amaj7//Fb",
+        "1Amaj7//E",
+        "1Amaj7//Fb",
+        "Amaj7//Ab",
+        "Amaj7//G#",
+        "1Amaj7//Ab",
+        "1Amaj7//G#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Amaj7/Ab",
+        "2Amaj7/G#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 6,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Amaj7//Ab",
+        "2Amaj7//G#"
+      ],
+      "neck": [
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Am7",
+        "1Am7",
+        "Am7/A",
+        "1Am7/A",
+        "Am7//A",
+        "1Am7//A",
+        "Am7//E",
+        "Am7//Fb",
+        "1Am7//E",
+        "1Am7//Fb",
+        "Am7//G",
+        "1Am7//G"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Am7/G"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Am7//G"
+      ],
+      "neck": [
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Bbmaj7",
+        "1Bbmaj7",
+        "A#maj7",
+        "1A#maj7",
+        "Bbmaj7/Bb",
+        "Bbmaj7/A#",
+        "1Bbmaj7/Bb",
+        "1Bbmaj7/A#",
+        "A#maj7/Bb",
+        "A#maj7/A#",
+        "1A#maj7/Bb",
+        "1A#maj7/A#",
+        "Bbmaj7//Bb",
+        "Bbmaj7//A#",
+        "1Bbmaj7//Bb",
+        "1Bbmaj7//A#",
+        "A#maj7//Bb",
+        "A#maj7//A#",
+        "1A#maj7//Bb",
+        "1A#maj7//A#",
+        "Bbmaj7//F",
+        "Bbmaj7//E#",
+        "1Bbmaj7//F",
+        "1Bbmaj7//E#",
+        "A#maj7//F",
+        "A#maj7//E#",
+        "1A#maj7//F",
+        "1A#maj7//E#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Bbmaj7/A",
+        "2A#maj7/A"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 7,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Bbmaj7//A",
+        "2A#maj7//A"
+      ],
+      "neck": [
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Bbm7",
+        "1Bbm7",
+        "A#m7",
+        "1A#m7",
+        "Bbm7/Bb",
+        "Bbm7/A#",
+        "1Bbm7/Bb",
+        "1Bbm7/A#",
+        "A#m7/Bb",
+        "A#m7/A#",
+        "1A#m7/Bb",
+        "1A#m7/A#",
+        "Bbm7//Bb",
+        "Bbm7//A#",
+        "1Bbm7//Bb",
+        "1Bbm7//A#",
+        "A#m7//Bb",
+        "A#m7//A#",
+        "1A#m7//Bb",
+        "1A#m7//A#",
+        "Bbm7//F",
+        "Bbm7//E#",
+        "1Bbm7//F",
+        "1Bbm7//E#",
+        "A#m7//F",
+        "A#m7//E#",
+        "1A#m7//F",
+        "1A#m7//E#",
+        "Bbm7//Ab",
+        "Bbm7//G#",
+        "1Bbm7//Ab",
+        "1Bbm7//G#",
+        "A#m7//Ab",
+        "A#m7//G#",
+        "1A#m7//Ab",
+        "1A#m7//G#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Bbm7/Ab",
+        "2Bbm7/G#",
+        "2A#m7/Ab",
+        "2A#m7/G#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Bbm7//Ab",
+        "2Bbm7//G#",
+        "2A#m7//Ab",
+        "2A#m7//G#"
+      ],
+      "neck": [
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Bmaj7",
+        "1Bmaj7",
+        "Bmaj7/B",
+        "Bmaj7/Cb",
+        "1Bmaj7/B",
+        "1Bmaj7/Cb",
+        "Bmaj7//B",
+        "Bmaj7//Cb",
+        "1Bmaj7//B",
+        "1Bmaj7//Cb",
+        "Bmaj7//F#",
+        "Bmaj7//Gb",
+        "1Bmaj7//F#",
+        "1Bmaj7//Gb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Bmaj7/Bb",
+        "2Bmaj7/A#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 8,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Bmaj7//Bb",
+        "2Bmaj7//A#"
+      ],
+      "neck": [
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Bm7",
+        "1Bm7",
+        "Bm7/B",
+        "Bm7/Cb",
+        "1Bm7/B",
+        "1Bm7/Cb",
+        "Bm7//B",
+        "Bm7//Cb",
+        "1Bm7//B",
+        "1Bm7//Cb",
+        "Bm7//F#",
+        "Bm7//Gb",
+        "1Bm7//F#",
+        "1Bm7//Gb",
+        "Bm7//A",
+        "1Bm7//A"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Bm7/A"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Bm7//A"
+      ],
+      "neck": [
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "C7",
+        "B#7",
+        "1C7",
+        "1B#7",
+        "C7/C",
+        "C7/B#",
+        "B#7/C",
+        "B#7/B#",
+        "1C7/C",
+        "1C7/B#",
+        "1B#7/C",
+        "1B#7/B#",
+        "C7//C",
+        "C7//B#",
+        "B#7//C",
+        "B#7//B#",
+        "1C7//C",
+        "1C7//B#",
+        "1B#7//C",
+        "1B#7//B#",
+        "C7//E",
+        "C7//Fb",
+        "B#7//E",
+        "B#7//Fb",
+        "1C7//E",
+        "1C7//Fb",
+        "1B#7//E",
+        "1B#7//Fb",
+        "C7//G",
+        "B#7//G",
+        "1C7//G",
+        "1B#7//G",
+        "C7//Bb",
+        "C7//A#",
+        "B#7//Bb",
+        "B#7//A#",
+        "1C7//Bb",
+        "1C7//A#",
+        "1B#7//Bb",
+        "1B#7//A#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "C7/E",
+        "C7/Fb",
+        "B#7/E",
+        "B#7/Fb",
+        "1C7/E",
+        "1C7/Fb",
+        "1B#7/E",
+        "1B#7/Fb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "C7/G",
+        "B#7/G",
+        "1C7/G",
+        "1B#7/G"
+      ],
+      "neck": [
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "C7/Bb",
+        "C7/A#",
+        "B#7/Bb",
+        "B#7/A#",
+        "1C7/Bb",
+        "1C7/A#",
+        "1B#7/Bb",
+        "1B#7/A#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 3,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2C7/Bb",
+        "2C7/A#",
+        "2B#7/Bb",
+        "2B#7/A#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2C7//Bb",
+        "2C7//A#",
+        "2B#7//Bb",
+        "2B#7//A#"
+      ],
+      "neck": [
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "C#7",
+        "Db7",
+        "1C#7",
+        "1Db7",
+        "C#7/C#",
+        "C#7/Db",
+        "Db7/C#",
+        "Db7/Db",
+        "1C#7/C#",
+        "1C#7/Db",
+        "1Db7/C#",
+        "1Db7/Db",
+        "C#7//C#",
+        "C#7//Db",
+        "Db7//C#",
+        "Db7//Db",
+        "1C#7//C#",
+        "1C#7//Db",
+        "1Db7//C#",
+        "1Db7//Db",
+        "C#7//Ab",
+        "C#7//G#",
+        "Db7//Ab",
+        "Db7//G#",
+        "1C#7//Ab",
+        "1C#7//G#",
+        "1Db7//Ab",
+        "1Db7//G#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "C#7//B",
+        "C#7//Cb",
+        "Db7//B",
+        "Db7//Cb",
+        "1C#7//B",
+        "1C#7//Cb",
+        "1Db7//B",
+        "1Db7//Cb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2C#7/B",
+        "2C#7/Cb",
+        "2Db7/B",
+        "2Db7/Cb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2C#7//B",
+        "2C#7//Cb",
+        "2Db7//B",
+        "2Db7//Cb"
+      ],
+      "neck": [
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "D7",
+        "1D7",
+        "D7/D",
+        "1D7/D",
+        "D7//D",
+        "1D7//D",
+        "D7//A",
+        "1D7//A",
+        "D7//C",
+        "D7//B#",
+        "1D7//C",
+        "1D7//B#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "3",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2D7/C",
+        "2D7/B#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2D7//C",
+        "2D7//B#"
+      ],
+      "neck": [
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 12,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Eb7",
+        "D#7",
+        "1Eb7",
+        "1D#7",
+        "Eb7/Eb",
+        "Eb7/D#",
+        "D#7/Eb",
+        "D#7/D#",
+        "1Eb7/Eb",
+        "1Eb7/D#",
+        "1D#7/Eb",
+        "1D#7/D#",
+        "Eb7//Eb",
+        "Eb7//D#",
+        "D#7//Eb",
+        "D#7//D#",
+        "1Eb7//Eb",
+        "1Eb7//D#",
+        "1D#7//Eb",
+        "1D#7//D#",
+        "Eb7//Bb",
+        "Eb7//A#",
+        "D#7//Bb",
+        "D#7//A#",
+        "1Eb7//Bb",
+        "1Eb7//A#",
+        "1D#7//Bb",
+        "1D#7//A#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Eb7//C#",
+        "Eb7//Db",
+        "D#7//C#",
+        "D#7//Db",
+        "1Eb7//C#",
+        "1Eb7//Db",
+        "1D#7//C#",
+        "1D#7//Db"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Eb7/C#",
+        "2Eb7/Db",
+        "2D#7/C#",
+        "2D#7/Db"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 12,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Eb7//C#",
+        "2Eb7//Db",
+        "2D#7//C#",
+        "2D#7//Db"
+      ],
+      "neck": [
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 13,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 12,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "E7/D",
+        "Fb7/D",
+        "1E7/D",
+        "1Fb7/D"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "E7//D",
+        "Fb7//D",
+        "1E7//D",
+        "1Fb7//D"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2E7",
+        "2Fb7",
+        "2E7/E",
+        "2E7/Fb",
+        "2Fb7/E",
+        "2Fb7/Fb",
+        "2E7//E",
+        "2E7//Fb",
+        "2Fb7//E",
+        "2Fb7//Fb",
+        "2E7//B",
+        "2E7//Cb",
+        "2Fb7//B",
+        "2Fb7//Cb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2E7//D",
+        "2Fb7//D"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "F7/Eb",
+        "F7/D#",
+        "E#7/Eb",
+        "E#7/D#",
+        "1F7/Eb",
+        "1F7/D#",
+        "1E#7/Eb",
+        "1E#7/D#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "F7//Eb",
+        "F7//D#",
+        "E#7//Eb",
+        "E#7//D#",
+        "1F7//Eb",
+        "1F7//D#",
+        "1E#7//Eb",
+        "1E#7//D#"
+      ],
+      "neck": [
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2F7",
+        "2E#7",
+        "2F7/F",
+        "2F7/E#",
+        "2E#7/F",
+        "2E#7/E#",
+        "2F7//F",
+        "2F7//E#",
+        "2E#7//F",
+        "2E#7//E#",
+        "2F7//C",
+        "2F7//B#",
+        "2E#7//C",
+        "2E#7//B#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2F7//Eb",
+        "2F7//D#",
+        "2E#7//Eb",
+        "2E#7//D#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 10,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "F#7/E",
+        "F#7/Fb",
+        "Gb7/E",
+        "Gb7/Fb",
+        "1F#7/E",
+        "1F#7/Fb",
+        "1Gb7/E",
+        "1Gb7/Fb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "F#7//E",
+        "F#7//Fb",
+        "Gb7//E",
+        "Gb7//Fb",
+        "1F#7//E",
+        "1F#7//Fb",
+        "1Gb7//E",
+        "1Gb7//Fb"
+      ],
+      "neck": [
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2F#7",
+        "2Gb7",
+        "2F#7/F#",
+        "2F#7/Gb",
+        "2Gb7/F#",
+        "2Gb7/Gb",
+        "2F#7//F#",
+        "2F#7//Gb",
+        "2Gb7//F#",
+        "2Gb7//Gb",
+        "2F#7//C#",
+        "2F#7//Db",
+        "2Gb7//C#",
+        "2Gb7//Db",
+        "2F#7//E",
+        "2F#7//Fb",
+        "2Gb7//E",
+        "2Gb7//Fb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "G7/D",
+        "1G7/D"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "G7//D",
+        "1G7//D"
+      ],
+      "neck": [
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2G7/F",
+        "2G7/E#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2G7//F",
+        "2G7//E#"
+      ],
+      "neck": [
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Ab7/F#",
+        "Ab7/Gb",
+        "G#7/F#",
+        "G#7/Gb",
+        "1Ab7/F#",
+        "1Ab7/Gb",
+        "1G#7/F#",
+        "1G#7/Gb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Ab7//F#",
+        "Ab7//Gb",
+        "G#7//F#",
+        "G#7//Gb",
+        "1Ab7//F#",
+        "1Ab7//Gb",
+        "1G#7//F#",
+        "1G#7//Gb"
+      ],
+      "neck": [
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 4,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Ab7",
+        "2G#7",
+        "2Ab7/Ab",
+        "2Ab7/G#",
+        "2G#7/Ab",
+        "2G#7/G#",
+        "2Ab7//Ab",
+        "2Ab7//G#",
+        "2G#7//Ab",
+        "2G#7//G#",
+        "2Ab7//Eb",
+        "2Ab7//D#",
+        "2G#7//Eb",
+        "2G#7//D#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 13,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 13,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Ab7//F#",
+        "2Ab7//Gb",
+        "2G#7//F#",
+        "2G#7//Gb"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 13,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 13,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 11,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "A7",
+        "1A7",
+        "A7/A",
+        "1A7/A",
+        "A7//A",
+        "1A7//A",
+        "A7//E",
+        "A7//Fb",
+        "1A7//E",
+        "1A7//Fb",
+        "A7//G",
+        "1A7//G"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2A7/G"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2A7//G"
+      ],
+      "neck": [
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 5,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Bb7",
+        "A#7",
+        "1Bb7",
+        "1A#7",
+        "Bb7/Bb",
+        "Bb7/A#",
+        "A#7/Bb",
+        "A#7/A#",
+        "1Bb7/Bb",
+        "1Bb7/A#",
+        "1A#7/Bb",
+        "1A#7/A#",
+        "Bb7//Bb",
+        "Bb7//A#",
+        "A#7//Bb",
+        "A#7//A#",
+        "1Bb7//Bb",
+        "1Bb7//A#",
+        "1A#7//Bb",
+        "1A#7//A#",
+        "Bb7//F",
+        "Bb7//E#",
+        "A#7//F",
+        "A#7//E#",
+        "1Bb7//F",
+        "1Bb7//E#",
+        "1A#7//F",
+        "1A#7//E#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "4",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "Bb7//Ab",
+        "Bb7//G#",
+        "A#7//Ab",
+        "A#7//G#",
+        "1Bb7//Ab",
+        "1Bb7//G#",
+        "1A#7//Ab",
+        "1A#7//G#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 3,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Bb7/Ab",
+        "2Bb7/G#",
+        "2A#7/Ab",
+        "2A#7/G#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2Bb7//Ab",
+        "2Bb7//G#",
+        "2A#7//Ab",
+        "2A#7//G#"
+      ],
+      "neck": [
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 6,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "B7/Eb",
+        "B7/D#",
+        "Cb7/Eb",
+        "Cb7/D#",
+        "1B7/Eb",
+        "1B7/D#",
+        "1Cb7/Eb",
+        "1Cb7/D#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "4",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "B7//Eb",
+        "B7//D#",
+        "Cb7//Eb",
+        "Cb7//D#",
+        "1B7//Eb",
+        "1B7//D#",
+        "1Cb7//Eb",
+        "1Cb7//D#"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 2,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 1,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 0,
+          "fngr": "0",
+          "aud": 1
+        },
+        {
+          "fret": 2,
+          "fngr": "4",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2B7/A",
+        "2Cb7/A"
+      ],
+      "neck": [
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 0,
+          "fngr": "-",
+          "aud": 0
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    },
+    {
+      "nomx": [
+        "2B7//A",
+        "2Cb7//A"
+      ],
+      "neck": [
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 9,
+          "fngr": "3",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 8,
+          "fngr": "2",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        },
+        {
+          "fret": 7,
+          "fngr": "1",
+          "aud": 1
+        }
+      ]
+    }
+  ]
+}

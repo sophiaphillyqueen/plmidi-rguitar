@@ -1,0 +1,14 @@
+
+# Finder and macOS metadata
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+.VolumeIcon.icns
+
+# External drives and network volumes
+.Spotlight-V100/
+.Trashes/
+.fseventsd/
+.apdisk
+

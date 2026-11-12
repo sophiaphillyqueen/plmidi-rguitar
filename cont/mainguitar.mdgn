@@ -19,6 +19,7 @@ use Fcntl qw(O_WRONLY O_CREAT O_EXCL);
 use Errno qw(EEXIST);
 use POSIX qw(strftime);
 use Scalar::Util qw(reftype blessed);
+use JSON::PP ();
 use strict;
 
 sub new {
@@ -389,7 +390,9 @@ sub enterchord {
   # And we add the chord.
   foreach $lc_each (@$lc_names)
   {
-    $this->{'chord'}->{$lc_each} = $lc_cneck;
+    my $lc2_crd;
+    $lc2_crd = _norm_symb($lc_each);
+    $this->{'chord'}->{$lc2_crd} = $lc_cneck;
   }
   
   # If we got this far, it was a success.
@@ -504,12 +507,18 @@ sub raudstr {
 
 sub tochord {
   # Changes the guitar's neck to the named chord.
-  # Undefined, empty, or '-' means no change.
-  # Returns an arrayref of audible string numbers.
+  # The first argument is mandatory -- and in it
+  # undefined, empty, or '-' means no change.
   # Unknown chord names cause a fatal error.
+  # The second argument (optional) contains the
+  # caller information. If it is absent or undefined,
+  # this function will obtain that from `[caller(0)]`.
+  #
+  # Returns an arrayref of audible string numbers.
 
   my $this;
   my $lc_nom;
+  my $lc_prenorm;
   my $lc_chord;
   my $lc_each;
   my $lc_string;
@@ -517,16 +526,24 @@ sub tochord {
 
   $this = shift(@_);
   $lc_nom = shift(@_);
+  $lc_call = shift(@_);
+  if ( !(defined($lc_call)) )
+  {
+    $lc_call = [caller(0)];
+  }
 
   # Reserved values leave the neck unchanged.
   if ( !defined($lc_nom) ) { return $this->audstr(); }
   if ( $lc_nom eq '' || $lc_nom eq '-' ) { return $this->audstr(); }
+  
+  # Let us normalize the chord name:
+  $lc_prenorm = $lc_nom;
+  $lc_nom = _norm_symb($lc_prenorm);
 
   # An unknown chord is a fatal error.
   if ( !exists($this->{'chord'}->{$lc_nom}) )
   {
-    $lc_call = [caller(0)];
-    die "Unknown chord '$lc_nom' (called from "
+    die "Unknown chord '$lc_prenorm' (called from "
       . $lc_call->[1] . " line " . $lc_call->[2]
       . "): define the chord or correct the call.\n";
   }
@@ -874,6 +891,22 @@ sub _reserve_output_file {
 
   return ($lc_path,$lc_fh);
 }
+
+
+sub _norm_symb {
+  # Takes one chord name and normalizes its accidental
+  # symbols to their ASCII equivalents.
+  # Returns the normalized name without changing the original.
+
+  my $lc_nom;
+
+  $lc_nom = shift(@_);
+  $lc_nom =~ s/\x{266D}/b/g;
+  $lc_nom =~ s/\x{266F}/#/g;
+
+  return $lc_nom;
+}
+
 
 
 1;
