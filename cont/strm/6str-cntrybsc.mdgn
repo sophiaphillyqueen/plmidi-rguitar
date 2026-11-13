@@ -20,6 +20,58 @@ my $strum_spw = .9;
 
 my $ptrn = {};
 
+$ptrn->{'ww'} = sub {
+  my $this;
+  my $lc_call;
+  my $lc_actv;
+  my $lc_vtca;
+  my $lc_trc;
+  my $lc_vol;
+  $this = shift(@_);
+  $lc_call = [caller(1)];
+  $this->add_bar();
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  
+  $this->play(($lc_actv->[0]),{'vel'=>100});
+  $this->ford(1);
+  
+  $lc_vol = 80;
+  $this->play(($lc_actv->[1]),{'vel'=>$lc_vol});
+  $lc_trc = $lc_actv->[2];
+  $lc_vol = int($lc_vol * $strum_spw);
+  while ( $lc_trc <= ($lc_vtca->[0]) )
+  {
+    $this->ticks_forward($strum_laz);
+    $this->play($lc_trc,{'vel'=>$lc_vol});
+    $lc_trc++;
+    $lc_vol = int($lc_vol * $strum_spw);
+  }
+  $this->ford(1);
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  
+  $this->play(($lc_actv->[0]),{'vel'=>100});
+  $this->ford(1);
+  
+  $lc_vol = 80;
+  $this->play(($lc_actv->[1]),{'vel'=>$lc_vol});
+  $lc_trc = $lc_actv->[2];
+  $lc_vol = int($lc_vol * $strum_spw);
+  while ( $lc_trc <= ($lc_vtca->[0]) )
+  {
+    $this->ticks_forward($strum_laz);
+    $this->play($lc_trc,{'vel'=>$lc_vol});
+    $lc_trc++;
+    $lc_vol = int($lc_vol * $strum_spw);
+  }
+  $this->ford(1);
+  
+  $this->add_bar();
+};
+
 $ptrn->{'sw'} = sub {
   my $this;
   my $lc_call;
@@ -150,6 +202,84 @@ $ptrn->{'ws'} = sub {
   $this->add_bar();
 };
 
+$ptrn->{'ss'} = sub {
+  my $this;
+  my $lc_call;
+  my $lc_actv;
+  my $lc_vtca;
+  my $lc_trc;
+  my $lc_vol;
+  $this = shift(@_);
+  $lc_call = [caller(1)];
+  $this->add_bar();
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  
+  $this->play(($lc_actv->[0]),{'vel'=>100});
+  $this->ford(1);
+  
+  $lc_vol = 80;
+  $this->play(($lc_actv->[1]),{'vel'=>$lc_vol});
+  $lc_trc = $lc_actv->[2];
+  $lc_vol = int($lc_vol * $strum_spw);
+  while ( $lc_trc <= ($lc_vtca->[0]) )
+  {
+    $this->ticks_forward($strum_laz);
+    $this->play($lc_trc,{'vel'=>$lc_vol});
+    $lc_trc++;
+    $lc_vol = int($lc_vol * $strum_spw);
+  }
+  $this->ford(0,2);
+  
+  $lc_vol = 80;
+  $this->play(($lc_vtca->[0]),{'vel'=>$lc_vol});
+  $lc_trc = $lc_vtca->[1];
+  $lc_vol = int($lc_vol * $strum_spw);
+  while ( $lc_trc >= ($lc_actv->[1]) )
+  {
+    $this->ticks_forward($strum_laz);
+    $this->play($lc_trc,{'vel'=>$lc_vol});
+    $lc_trc--;
+    $lc_vol = int($lc_vol * $strum_spw);
+  }
+  $this->ford(0,2);
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  
+  $this->play(($lc_actv->[0]),{'vel'=>100});
+  $this->ford(1);
+  
+  $lc_vol = 80;
+  $this->play(($lc_actv->[1]),{'vel'=>$lc_vol});
+  $lc_trc = $lc_actv->[2];
+  $lc_vol = int($lc_vol * $strum_spw);
+  while ( $lc_trc <= ($lc_vtca->[0]) )
+  {
+    $this->ticks_forward($strum_laz);
+    $this->play($lc_trc,{'vel'=>$lc_vol});
+    $lc_trc++;
+    $lc_vol = int($lc_vol * $strum_spw);
+  }
+  $this->ford(0,2);
+  
+  $lc_vol = 80;
+  $this->play(($lc_vtca->[0]),{'vel'=>$lc_vol});
+  $lc_trc = $lc_vtca->[1];
+  $lc_vol = int($lc_vol * $strum_spw);
+  while ( $lc_trc >= ($lc_actv->[1]) )
+  {
+    $this->ticks_forward($strum_laz);
+    $this->play($lc_trc,{'vel'=>$lc_vol});
+    $lc_trc--;
+    $lc_vol = int($lc_vol * $strum_spw);
+  }
+  $this->ford(0,2);
+  
+  $this->add_bar();
+};
+
 
 sub apply {
   my $this;
@@ -162,8 +292,10 @@ sub apply {
   $lc_pf = shift(@_);
   if ( !(defined($lc_pf)) ) { $lc_pf = ''; }
   
+  _apl($lc_gt,'ww',$lc_pf);
   _apl($lc_gt,'ws',$lc_pf);
   _apl($lc_gt,'sw',$lc_pf);
+  _apl($lc_gt,'ss',$lc_pf);
 };
 
 sub _apl {
