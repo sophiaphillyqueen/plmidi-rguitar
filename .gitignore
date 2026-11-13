@@ -1,4 +1,7 @@
 
+# Build stuff
+/build
+
 # Finder and macOS metadata
 .DS_Store
 ._*
