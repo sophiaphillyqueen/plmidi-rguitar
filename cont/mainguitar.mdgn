@@ -66,6 +66,7 @@ sub new {
   $lc_ret->{'bar'} = 0; # Where this measure begins
   $lc_ret->{'pos'} = [0,0,0,0]; # Position within measure
   $lc_ret->{'riff'} = {}; # Hash of all riffs
+  $lc_ret->{'strum'} = {}; # Hash of all strum patterns
   $lc_ret->{'chord'} = {}; # Chord catalog
   
   # Constructing the low-level implementation object is
@@ -289,19 +290,68 @@ sub doriff {
   my $lc_nom;
   my $lc_code;
   my $lc_ret;
+  my $lc_call;
   
   # Get stuff from the arguments.
   $this = shift(@_);
   $lc_nom = shift(@_);
+  $lc_call = [caller(0)];
   
   # Obtain and validate the code.
   if ( !defined($lc_nom) ) { return { }; }
   if ( ( reftype($lc_nom) // '' ) ne '' ) { return { }; }
   if ( $lc_nom eq '' ) { return { }; }
   $lc_code = $this->{'riff'}->{$lc_nom};
-  if ( ( reftype($lc_code) // '' ) ne 'CODE' ) { return { }; }
+  if ( ( reftype($lc_code) // '' ) ne 'CODE' )
+  {
+    die "Unknown or invalid riff '$lc_nom' (called from "
+      . $lc_call->[1] . " line " . $lc_call->[2]
+      . "): register the riff or correct the call.\n";
+  }
   
   # Play the riff and go home.
+  $lc_ret = &$lc_code($this,@_);
+  return { 'ok' => 1, 'ret' => $lc_ret, };
+}
+
+sub strum {
+  # This method follows once a strum pattern. The
+  # first argument is the name of a strum pattern
+  # registered to this object. All further arguments
+  # (which should be the names of chords) get
+  # forwarded to the strum-pattern function after
+  # the reference to this object itself.
+  #
+  # This function returns a hashref. In the event
+  # of failure, that hashref's `ok` field is either
+  # absent or present with a value of `0`. In the
+  # event of success, the hashref's `ok` field is
+  # present with a value of `1`, and the `ret` field
+  # contains the return-value of the riff function.
+  my $this;
+  my $lc_nom;
+  my $lc_code;
+  my $lc_ret;
+  my $lc_call;
+  
+  # Get stuff from the arguments.
+  $this = shift(@_);
+  $lc_nom = shift(@_);
+  $lc_call = [caller(0)];
+  
+  # Obtain and validate the code.
+  if ( !defined($lc_nom) ) { return { }; }
+  if ( ( reftype($lc_nom) // '' ) ne '' ) { return { }; }
+  if ( $lc_nom eq '' ) { return { }; }
+  $lc_code = $this->{'strum'}->{$lc_nom};
+  if ( ( reftype($lc_code) // '' ) ne 'CODE' )
+  {
+    die "Unknown or invalid strum '$lc_nom' (called from "
+      . $lc_call->[1] . " line " . $lc_call->[2]
+      . "): register the strum or correct the call.\n";
+  }
+  
+  # Do the strum and go home.
   $lc_ret = &$lc_code($this,@_);
   return { 'ok' => 1, 'ret' => $lc_ret, };
 }
@@ -333,6 +383,36 @@ sub setriff {
   
   # Now we register the riff and go home.
   $this->{'riff'}->{$lc_name} = $lc_code;
+  return { 'ok' => 1, };
+}
+
+sub setstrum {
+  # Adds a strum pattern to the object from an
+  # already-present possibly-anonymous function.
+  #
+  # First argument specifies the name of the strum
+  # pattern, and the second argument is the coderef.
+  #
+  # The return value is a hashref in which the field `ok`
+  # has a value of `1` for success, and is either absent
+  # or with a value of `0` for failure.
+  my $this;
+  my $lc_name;
+  my $lc_code;
+  
+  # Get stuff from the arguments:
+  $this = shift(@_);
+  $lc_name = shift(@_);
+  $lc_code = shift(@_);
+  
+  # Make sure we got valid stuff.
+  if ( !(defined($lc_name)) ) { return { }; }
+  if ( reftype($lc_name) ) { return { }; }
+  if ( $lc_name eq '' ) { return { }; }
+  if ( ( reftype($lc_code) // '' ) ne 'CODE' ) { return { }; }
+  
+  # Now we register the strum pattern and go home.
+  $this->{'strum'}->{$lc_name} = $lc_code;
   return { 'ok' => 1, };
 }
 
@@ -559,6 +639,113 @@ sub tochord {
 
   return $this->audstr();
 }
+
+
+
+sub load_v_strums {
+  # Loads a strum-pattern package containing executable
+  # Perl code and applies it to this guitar object.
+  #
+  # First argument: package specification, passed unchanged
+  # to the bartender's fscplug() method.
+  # Second argument: optional prefix for pattern names,
+  # defaulting to the empty string.
+  #
+  # Returns undef if loading fails; otherwise returns
+  # the result of the package's apply() method.
+  # Exceptions from apply() are not intercepted.
+
+  my $this;
+  my $lc_source;
+  my $lc_prefix;
+  my $lc_package;
+  my $lc_ret;
+
+  # Obtain the arguments.
+  $this = shift(@_);
+  $lc_source = shift(@_);
+  $lc_prefix = shift(@_);
+
+  if ( !defined($lc_prefix) )
+  {
+    $lc_prefix = '';
+  }
+
+  # Load the package through the bartender.
+  $lc_package = $this->{'bart'}->fscplug($lc_source);
+
+  if ( !defined($lc_package) )
+  {
+    return { };
+  }
+
+  # Apply the package to this guitar object.
+  $lc_ret = $lc_package->apply($this,$lc_prefix);
+  return { 'ok' => 1, 'val' => $lc_ret, };
+}
+
+
+sub capo {
+  # Move the virtual capo by a signed number of semitones
+  # Positive moves upward, negative moves downward
+  # Zero leaves everything unchanged
+  #
+  # A pitch-range violation is fatal and leaves all
+  # strings unchanged
+  #
+  # Updates the low-level selected pitches, allowing
+  # continuous bending where supported
+
+  my $this;
+  my $lc_delta;
+  my $lc_call;
+  my $lc_string;
+  my $lc_neck;
+  my $lc_pitch;
+
+  $this = shift(@_);
+  $lc_delta = shift(@_);
+  $lc_call = [caller(0)];
+
+  # Make sure the adjustment is a signed integer
+  if ( !defined($lc_delta) || ref($lc_delta) ||
+       $lc_delta !~ /\A[+-]?[0-9]+\z/ )
+  {
+    die "Invalid capo adjustment: expected a signed integer number of semitones"
+      . " (called from " . $lc_call->[1] . " line " . $lc_call->[2] . ").\n";
+  }
+
+  if ( $lc_delta == 0 ) { return; }
+
+  # Check every proposed pitch before changing anything
+  foreach $lc_string (1 .. $this->{'nsiz'})
+  {
+    $lc_neck = $this->{'neck'}->[$lc_string];
+    $lc_pitch = $lc_neck->{'bas'} + $lc_neck->{'fret'} + $lc_delta;
+
+    if ( $lc_pitch < -60 || $lc_pitch > 67 )
+    {
+      die "Capo adjustment $lc_delta rejected on string $lc_string: "
+        . "base " . $lc_neck->{'bas'} . " + fret " . $lc_neck->{'fret'}
+        . " + adjustment $lc_delta = pitch $lc_pitch (MIDI note "
+        . ($lc_pitch + 60) . "; allowed 0..127). No strings changed"
+        . " (called from " . $lc_call->[1] . " line " . $lc_call->[2] . ").\n";
+    }
+  }
+
+  # All proposed pitches are valid, so commit the change
+  foreach $lc_string (1 .. $this->{'nsiz'})
+  {
+    $lc_neck = $this->{'neck'}->[$lc_string];
+    $lc_neck->{'bas'} = $lc_neck->{'bas'} + $lc_delta;
+    $lc_pitch = $lc_neck->{'bas'} + $lc_neck->{'fret'};
+    $this->{'llev'}->set_pitch($lc_string,$lc_pitch);
+  }
+
+  return;
+}
+
+
 
 
 

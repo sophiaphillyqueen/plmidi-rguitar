@@ -111,6 +111,21 @@
         }
       ]
     },
+    
+    
+    {
+      "nomx": ["D7//F#", "D7//Gb", "1D7//F#", "1D7//Gb"],
+      "neck": [
+        {"fret": 0, "fngr": "-", "aud": 0},
+        {"fret": 0, "fngr": "-", "aud": 0},
+        {"fret": 0, "fngr": "0", "aud": 1},
+        {"fret": 2, "fngr": "3", "aud": 1},
+        {"fret": 1, "fngr": "1", "aud": 1},
+        {"fret": 2, "fngr": "4", "aud": 1}
+      ]
+    },
+
+    
     {
       "nomx": [
         "2Cmaj7//B",
