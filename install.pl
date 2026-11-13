@@ -91,8 +91,8 @@ if( !( -d 'build' ) )
   my $lc_fh;
   my $lc_json;
 
-  open($lc_fh,'<:raw','pack-data.json')
-    or die "Cannot open pack-data.json: $!\n";
+  open($lc_fh,'<:raw','cont/pack-data.json')
+    or die "Cannot open 'cont/pack-data.json': $!\n";
 
   # Read the entire file.
   local $/;
