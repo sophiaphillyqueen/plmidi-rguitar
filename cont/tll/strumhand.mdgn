@@ -1,0 +1,179 @@
+# strumhand.mdgn -- Makes it easier to write strum patterns
+# Copyright (C) 2026  Sophia Elizabeth Shapira
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+use strict;
+
+sub new {
+  my $this;
+  my $lc_ret;
+  $this = shift(@_);
+  
+  $lc_ret = {
+    'strm' => {},
+  };
+  
+  # Bless and return the new object.
+  return bless ( $lc_ret, ( ref($this) || $this ) );
+}
+
+sub ingtr {
+  # A secondary constructor that creates a copy
+  # of this object, only this one will have the
+  # provided guitar.
+  my $this;
+  my $lc_gtr;
+  my $lc_ret;
+  
+  $this = shift(@_);
+  $lc_gtr = shift(@_);
+  
+  $lc_ret = {
+    'strm' => ($this->{'strm'}),
+    'gtr' => $lc_gtr,
+  };
+  
+  # Bless and return the new object.
+  return bless ( $lc_ret, ( ref($this) || $this ) );
+}
+
+sub insert {
+  my $this;
+  my $lc_pfx;
+  my $lc_call;
+  my @lc_keys;
+  my $lc_each;
+  my $lc_nom;
+  
+  # Get argumentary
+  $this = shift(@_);
+  $lc_pfx = shift(@_);
+  if ( !(defined($lc_pfx)) ) { $lc_pfx = ''; }
+  $lc_call = [caller(0)];
+  
+  # Make sure we have a guitar.
+  if ( !defined($this->{'gtr'}) )
+  {
+    die ("\n".
+      "`->insert()` method should not be used on unguitared object.\n" .
+      ' ' . $lc_call->[1] . "\n" .
+      ' Line ' . $lc_call->[2] . "\n" .
+    "\n");
+  }
+  
+  # Find the full list of functions:
+  @lc_keys = keys(%{$this->{'strm'}});
+  
+  foreach $lc_each (@lc_keys)
+  {
+    $lc_nom = ( $lc_pfx . $lc_each );
+    $this->{'gtr'}->setstrum($lc_nom,($this->{'strm'}->{$lc_each}));
+  }
+}
+
+sub newstrum {
+  my $this;
+  my $lc_nom;
+  my $lc_val;
+  my $lc_call;
+  
+  # Get argumentary
+  $this = shift(@_);
+  $lc_nom = shift(@_);
+  $lc_val = shift(@_);
+  $lc_call = [caller(0)];
+  
+  # Make sure this is on a root object
+  if ( defined($this->{'gtr'}) )
+  {
+    die ("\n".
+      "`->newstrum()` method should only be used on unguitared object.\n" .
+      ' ' . $lc_call->[1] . "\n" .
+      ' Line ' . $lc_call->[2] . "\n" .
+    "\n");
+  }
+  
+  if ( ( reftype($lc_val) // '' ) ne 'CODE' )
+  {
+    die ("\n".
+      "`->newstrum()` requires a coderef as its second argument.\n" .
+      ' ' . $lc_call->[1] . "\n" .
+      ' Line ' . $lc_call->[2] . "\n" .
+    "\n");
+  }
+  
+  if ( !defined($lc_nom) || ref($lc_nom) || ( $lc_nom eq '' ) )
+  {
+    die ("\n".
+      "`->newstrum()` requires a valid strum-name as its first argument.\n" .
+      ' ' . $lc_call->[1] . "\n" .
+      ' Line ' . $lc_call->[2] . "\n" .
+    "\n");
+  }
+  
+  $this->{'strm'}->{$lc_nom} = $lc_val;
+}
+
+sub sweep {
+  my $this;
+  my $lc_first;
+  my $lc_last;
+  my $lc_twstr; # ticks between strings
+  my $lc_ipower; # Initial power
+  my $lc_pwkeep; # portion of power kept from one string to next
+  my $lc_pol; # Polarity of advancement
+  
+  my $lc_cpow; # Current power
+  my $lc_trc; # String tracer
+  my $lc_call;
+  
+  # Get the argumentary
+  $this = shift(@_);
+  $lc_first = shift(@_);
+  $lc_last = shift(@_);
+  $lc_twstr = shift(@_);
+  $lc_ipower = shift(@_);
+  $lc_pwkeep = shift(@_);
+  $lc_call = [caller(0)];
+  
+  # Make sure we have a guitar.
+  if ( !defined($this->{'gtr'}) )
+  {
+    die ("\n".
+      "`->sweep()` method should not be used on unguitared object.\n" .
+      ' ' . $lc_call->[1] . "\n" .
+      ' Line ' . $lc_call->[2] . "\n" .
+    "\n");
+  }
+  
+  # Calculate polarity.
+  $lc_pol = 1;
+  if ( $lc_first > $lc_last ) { $lc_pol = -1; }
+  
+  # Strum the first string:
+  $this->{'gtr'}->play($lc_first,{'vel' => $lc_ipower});
+  $lc_trc = $lc_first + $lc_pol;
+  $lc_cpow = int($lc_ipower * $lc_pwkeep);
+  while ( 1 )
+  {
+    if ( ( $lc_pol < 0 ) && ( $lc_trc < $lc_last ) ) { return; }
+    if ( ( $lc_pol > 0 ) && ( $lc_trc > $lc_last ) ) { return; }
+    $this->{'gtr'}->ticks_forward($lc_twstr);
+    $this->{'gtr'}->play($lc_trc,{'vel' => $lc_cpow});
+    $lc_trc += $lc_pol;
+    $lc_cpow = int($lc_cpow * $lc_pwkeep);
+  }
+}
+
