@@ -26,7 +26,7 @@ my $respack = $PLUGINS_BAR->find_this_bundle($PLUGIN_DIRNAME);
 
 my $strumbx = $PLUGINS_BAR->fsplug([($respack . '/tll/strumhand.mdgn'),'StrumHand']);
 
-$strumbx->newstrum('main',sub {
+$strumbx->newstrum('ss',sub {
   my $this;
   my $lc_stb;
   my $lc_call;
@@ -37,9 +37,54 @@ $strumbx->newstrum('main',sub {
   $lc_stb = $strumbx->ingtr($this);
   $lc_call = [caller(1)];
   
+  $this->add_bar();
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  
+  $this->add_bar();
+});
+
+$strumbx->newstrum('ws',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  
+  $this = shift(@_);
+  $lc_stb = $strumbx->ingtr($this);
+  $lc_call = [caller(1)];
   
   $this->add_bar();
   
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(1);
   
   $lc_actv = $this->tochord(shift(@_),$lc_call);
   $lc_vtca = $this->raudstr();
@@ -52,6 +97,21 @@ $strumbx->newstrum('main',sub {
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   
+  $this->add_bar();
+});
+
+$strumbx->newstrum('sw',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  
+  $this = shift(@_);
+  $lc_stb = $strumbx->ingtr($this);
+  $lc_call = [caller(1)];
+  
+  $this->add_bar();
   
   $lc_actv = $this->tochord(shift(@_),$lc_call);
   $lc_vtca = $this->raudstr();
@@ -64,7 +124,234 @@ $strumbx->newstrum('main',sub {
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(1);
   
+  $this->add_bar();
+});
+
+$strumbx->newstrum('ww',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  
+  $this = shift(@_);
+  $lc_stb = $strumbx->ingtr($this);
+  $lc_call = [caller(1)];
+  
+  $this->add_bar();
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(1);
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(1);
+  
+  $this->add_bar();
+});
+
+$strumbx->newstrum('sm',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  
+  $this = shift(@_);
+  $lc_stb = $strumbx->ingtr($this);
+  $lc_call = [caller(1)];
+  
+  $this->add_bar();
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,40,$strum_spw);
+  $this->ford(0,2);
+  
+  $this->add_bar();
+});
+
+$strumbx->newstrum('ms',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  
+  $this = shift(@_);
+  $lc_stb = $strumbx->ingtr($this);
+  $lc_call = [caller(1)];
+  
+  $this->add_bar();
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,40,$strum_spw);
+  $this->ford(0,2);
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  
+  $this->add_bar();
+});
+
+$strumbx->newstrum('mm',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  
+  $this = shift(@_);
+  $lc_stb = $strumbx->ingtr($this);
+  $lc_call = [caller(1)];
+  
+  $this->add_bar();
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,40,$strum_spw);
+  $this->ford(0,2);
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,40,$strum_spw);
+  $this->ford(0,2);
+  
+  $this->add_bar();
+});
+
+$strumbx->newstrum('mw',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  
+  $this = shift(@_);
+  $lc_stb = $strumbx->ingtr($this);
+  $lc_call = [caller(1)];
+  
+  $this->add_bar();
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,40,$strum_spw);
+  $this->ford(0,2);
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(1);
+  
+  $this->add_bar();
+});
+
+$strumbx->newstrum('wm',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  
+  $this = shift(@_);
+  $lc_stb = $strumbx->ingtr($this);
+  $lc_call = [caller(1)];
+  
+  $this->add_bar();
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(1);
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,40,$strum_spw);
+  $this->ford(0,2);
   
   $this->add_bar();
 });
