@@ -19,6 +19,23 @@ use strict;
 my $strum_laz = 8;
 my $strum_spw = .9;
 
+our $PLUGINS_BAR;
+our $PLUGIN_DIRNAME;
+
+my $respack = $PLUGINS_BAR->find_this_bundle($PLUGIN_DIRNAME);
+
+my $strumbx = $PLUGINS_BAR->fsplug([($respack . '/tll/strumhand.mdgn'),'StrumHand']);
+
+$strumbx->newstrum('main',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  $this = shift(@_);
+  $lc_stb = $strumbx->intgr($this);
+  $lc_call = [caller(1)];
+});
+
+
 
 
 1;
