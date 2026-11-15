@@ -16,6 +16,7 @@
 
 use strict;
 use Scalar::Util qw(reftype);
+reftype('bar');
 
 sub new {
   my $this;
@@ -106,7 +107,7 @@ sub newstrum {
     "\n");
   }
   
-  if ( ( Scalar::Util::reftype($lc_val) // '' ) ne 'CODE' )
+  if ( ( reftype($lc_val) // '' ) ne 'CODE' )
   {
     die ("\n".
       "`->newstrum()` requires a coderef as its second argument.\n" .
