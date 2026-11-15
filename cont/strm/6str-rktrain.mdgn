@@ -30,11 +30,62 @@ $strumbx->newstrum('main',sub {
   my $this;
   my $lc_stb;
   my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  
   $this = shift(@_);
-  $lc_stb = $strumbx->intgr($this);
+  $lc_stb = $strumbx->ingtr($this);
   $lc_call = [caller(1)];
+  
+  
+  $this->add_bar();
+  
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_actv->[1],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  
+  
+  
+  $this->add_bar();
 });
 
+
+
+sub apply {
+  my $this;
+  my $lc_gt; # The guitar
+  my $lc_pf; # The prefix
+  my $lc_stb;
+  
+  # Get the arguments
+  $this = shift(@_);
+  $lc_gt = shift(@_);
+  $lc_pf = shift(@_);
+  if ( !(defined($lc_pf)) ) { $lc_pf = ''; }
+  
+  $lc_stb = $strumbx->ingtr($lc_gt);
+  $lc_stb->insert($lc_pf);
+}
 
 
 

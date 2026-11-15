@@ -15,6 +15,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use strict;
+use Scalar::Util qw(reftype);
 
 sub new {
   my $this;
@@ -105,7 +106,7 @@ sub newstrum {
     "\n");
   }
   
-  if ( ( reftype($lc_val) // '' ) ne 'CODE' )
+  if ( ( Scalar::Util::reftype($lc_val) // '' ) ne 'CODE' )
   {
     die ("\n".
       "`->newstrum()` requires a coderef as its second argument.\n" .
@@ -127,6 +128,12 @@ sub newstrum {
 }
 
 sub sweep {
+  # ARGUMENTS:
+  # -- starting string
+  # -- final string
+  # -- ticks between strings
+  # -- initial power
+  # -- percentage power keep
   my $this;
   my $lc_first;
   my $lc_last;
