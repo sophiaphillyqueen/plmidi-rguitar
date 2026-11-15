@@ -1,4 +1,7 @@
 
 {
-  "name": "plmidi-rguitar"
+  "name": "plmidi-rguitar",
+  "version": "0.0",
+  "stable": 0,
+  "packaged": 0
 }
