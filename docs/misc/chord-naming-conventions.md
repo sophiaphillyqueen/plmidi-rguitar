@@ -44,11 +44,25 @@ synonymous.
 
 ## 3. Bass Notes and Slash Notation
 
-A chord name without a slash separator always identifies
-a chord whose bass note is the root note of that chord.
+For guitar types where the musician has a reasonable choice
+of which note of a chord is played as its bass note, a chord
+name without a slash separator always identifies a chord
+whose bass note is the root note of that chord.
 
-For a chord with a different bass note, the notation
-`X/Y` identifies the chord `X` with `Y` as its bass note.
+For these guitar types, `X` and `X/X` are synonymous,
+identifying the same chord configuration.
+
+The notation `X/Y` identifies the chord `X` with `Y`
+as its bass note.
+
+However, for guitar types where the musician does not
+have a reasonable choice of which note serves as the
+bass note, such as a standard reentrant-tuned ukulele,
+the requirement that `X` have its root note as its bass
+note does not apply.
+
+Consequently, for these guitar types, `X` and `X/X`
+are not necessarily synonymous.
 
 Examples:
 
