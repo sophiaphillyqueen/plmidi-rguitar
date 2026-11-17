@@ -1,0 +1,62 @@
+use strict;
+our $PLUGINS_BAR;
+our $PLUGIN_DIRNAME;
+
+my $topbundle = $PLUGINS_BAR->find_this_bundle($PLUGIN_DIRNAME);
+
+if ( !$topbundle )
+{
+  die "\nFAILED TO FIND THE MAIN BUNDLE.\n\n";
+}
+
+
+
+sub rawloc {
+  # This method loads a MIDI instrument based on a
+  # raw filename for the specifying JSON.
+  my $this;
+  my $lc_cap;
+  my $lc_gtr;
+  my $lc_gtype;
+  my $lc_call;
+  my $lc_gtpack;
+  my $lc_gttune;
+  
+  $this = shift(@_);
+  $lc_gtype = shift(@_);
+  $lc_cap = shift(@_);
+  $lc_call = shift(@_);
+  
+  if ( !defined($lc_call) ) { $lc_call = [caller(0)]; }
+  
+  $lc_gtpack = $PLUGINS_BAR->load_json($lc_gtype);
+  if ( !defined($lc_gtpack) )
+  {
+    print STDERR("\n" .
+      "FAILURE TO LOAD GUITAR SPECIFIED HERE:\n" .
+      '  File: ' . $lc_call->[1] . "\n" .
+      '  Line: ' . $lc_call->[2] . "\n" .
+    "\n");
+    return undef;
+  }
+  $lc_gttune = $PLUGINS_BAR->ref_get($lc_gtpack,'val','tuning');
+  if ( !defined($lc_gttune) )
+  {
+    print STDERR("\n" .
+      "GUITAR IS MISSING THE \`tuning\` FIELD:\n" .
+      '  File: ' . $lc_call->[1] . "\n" .
+      '  Line: ' . $lc_call->[2] . "\n" .
+    "\n");
+    return undef;
+  }
+  
+  $lc_gtr = $PLUGINS_BAR->fsplug([($topbundle . '/mainguitar.mdgn'),'MainGuitar'],['E2','A2','D3','G3','B3','E4']);
+  if ( !defined($lc_gtr) ) { return undef; }
+  if ( defined($lc_cap) )
+  {
+    $lc_gtr->capo($lc_cap);
+  }
+  return $lc_gtr;
+}
+
+1;

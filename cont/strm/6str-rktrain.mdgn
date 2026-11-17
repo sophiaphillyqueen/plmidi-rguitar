@@ -356,6 +356,35 @@ $strumbx->newstrum('wm',sub {
   $this->add_bar();
 });
 
+$strumbx->newstrum('fin1',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  
+  $this = shift(@_);
+  $lc_stb = $strumbx->ingtr($this);
+  $lc_call = [caller(1)];
+  
+  $this->add_bar();
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $this->ford(0,2);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $this->ford(2);
+  
+  $this->add_bar();
+});
+
 
 
 sub apply {
