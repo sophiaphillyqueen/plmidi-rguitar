@@ -11,6 +11,30 @@ if ( !$topbundle )
 
 
 
+sub st_id {
+  # This method loads a MIDI instrument based on a
+  # the ID-string of a guitar defined within the
+  # main guitar-controller bundle.
+  my $this;
+  my $lc_gtype;
+  my $lc_cap;
+  my $lc_call;
+  my $lc_rgtype;
+  
+  $this = shift(@_);
+  $lc_gtype = shift(@_);
+  $lc_cap = shift(@_);
+  $lc_call = shift(@_);
+  
+  if ( !defined($lc_call) ) { $lc_call = [caller(0)]; }
+  
+  $lc_rgtype = ( $topbundle . '/init/' . $lc_gtype . '.json' );
+  
+  return $this->rawloc($lc_rgtype,$lc_cap,$lc_call);
+}
+
+
+
 sub rawloc {
   # This method loads a MIDI instrument based on a
   # raw filename for the specifying JSON.
