@@ -18,6 +18,7 @@ use strict;
 
 my $strum_laz = 8;
 my $strum_spw = .9;
+my $strum_sspw = .95;
 
 our $PLUGINS_BAR;
 our $PLUGIN_DIRNAME;
@@ -371,15 +372,15 @@ $strumbx->newstrum('fin1',sub {
   
   $lc_actv = $this->tochord(shift(@_),$lc_call);
   $lc_vtca = $this->raudstr();
-  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_sspw);
   $this->ford(0,2);
-  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_sspw);
   $this->ford(0,2);
-  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_sspw);
   $this->ford(0,2);
-  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
+  $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_sspw);
   $this->ford(0,2);
-  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_sspw);
   $this->ford(2);
   
   $this->add_bar();

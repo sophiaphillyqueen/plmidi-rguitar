@@ -1,4 +1,6 @@
 use strict;
+use Scalar::Util qw(reftype);
+
 our $PLUGINS_BAR;
 our $PLUGIN_DIRNAME;
 
@@ -17,20 +19,20 @@ sub st_id {
   # main guitar-controller bundle.
   my $this;
   my $lc_gtype;
-  my $lc_cap;
   my $lc_call;
+  my $lc_ext;
   my $lc_rgtype;
   
   $this = shift(@_);
   $lc_gtype = shift(@_);
-  $lc_cap = shift(@_);
+  $lc_ext = shift(@_);
   $lc_call = shift(@_);
   
   if ( !defined($lc_call) ) { $lc_call = [caller(0)]; }
   
   $lc_rgtype = ( $topbundle . '/init/' . $lc_gtype . '.json' );
   
-  return $this->rawloc($lc_rgtype,$lc_cap,$lc_call);
+  return $this->rawloc($lc_rgtype,$lc_ext,$lc_call);
 }
 
 
@@ -40,6 +42,7 @@ sub rawloc {
   # raw filename for the specifying JSON.
   my $this;
   my $lc_cap;
+  my $lc_ext;
   my $lc_gtr;
   my $lc_gtype;
   my $lc_call;
@@ -48,8 +51,17 @@ sub rawloc {
   
   $this = shift(@_);
   $lc_gtype = shift(@_);
-  $lc_cap = shift(@_);
+  $lc_ext = shift(@_);
   $lc_call = shift(@_);
+  
+  # The $lc_ext argument needs backward compatibility
+  # to when that argument just specified the capo
+  # position.
+  if ( ( reftype($lc_ext) // '' ) ne 'HASH' )
+  {
+    $lc_ext = { 'capo' =>  $lc_ext, };
+  }
+  $lc_cap = $lc_ext->{'capo'};
   
   if ( !defined($lc_call) ) { $lc_call = [caller(0)]; }
   
