@@ -1,0 +1,145 @@
+# 6str-blshuff.mdgn -- The Blues shuffle strum (for 6-string)
+# Copyright (C) 2026  Sophia Elizabeth Shapira
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+use strict;
+
+my $strum_laz = 10;
+my $strum_spw = .9;
+my $strum_sspw = .95;
+
+our $PLUGINS_BAR;
+our $PLUGIN_DIRNAME;
+
+my $respack = $PLUGINS_BAR->find_this_bundle($PLUGIN_DIRNAME);
+
+my $strumbx = $PLUGINS_BAR->fsplug([($respack . '/tll/strumhand.mdgn'),'StrumHand']);
+
+my $hlpv = {
+  't' => sub {
+    my $this;
+    my $lc_stb;
+    my $lc_call;
+    my $lc_actv; # Active strings bass to treble
+    my $lc_vtca; # Active strings treble to bass
+    $this = shift(@_);
+    $lc_stb = shift(@_);
+    $lc_call = shift(@_);
+    $lc_actv = $this->audstr();
+    $lc_vtca = $this->raudstr();
+    $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+    $this->ford(0,2,2,2);
+    $this->ticks_forward(10);
+    $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
+    $this->ford(0,1,1,2);
+  },
+  'F' => sub {
+    my $this;
+    my $lc_stb;
+    my $lc_call;
+    my $lc_actv; # Active strings bass to treble
+    my $lc_vtca; # Active strings treble to bass
+    $this = shift(@_);
+    $lc_stb = shift(@_);
+    $lc_call = shift(@_);
+    $lc_actv = $this->audstr();
+    $lc_vtca = $this->raudstr();
+    $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
+    $this->ford(1);
+  },
+  'x' => sub {
+    my $this;
+    my $lc_stb;
+    my $lc_call;
+    my $lc_actv; # Active strings bass to treble
+    my $lc_vtca; # Active strings treble to bass
+    $this = shift(@_);
+    $lc_stb = shift(@_);
+    $lc_call = shift(@_);
+    $lc_actv = $this->audstr();
+    $lc_vtca = $this->raudstr();
+    
+    $this->ford(1);
+  },
+};
+
+sub _beat {
+  my $this;
+  my $lc_mode;
+  my $lc_stb;
+  my $lc_call;
+  $this = shift(@_);
+  $lc_mode = shift(@_);
+  $lc_stb = shift(@_);
+  $lc_call = shift(@_);
+  if ( !defined($hlpv->{$lc_mode}) )
+  {
+    die("\n" .
+      "Unrecognized mode element: '" . $lc_mode . "'\n" .
+      " File: " . $lc_call->[1] . "\n" .
+      " Line: " . $lc_call->[2] . "\n" .
+    "\n");
+  }
+  return &{$hlpv->{$lc_mode}}($this,$lc_stb,$lc_call);
+}
+
+$strumbx->newstrum('main',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  my $lc_mode;
+  my $lc_rmode;
+  #my $lc_actv; # Active strings bass to treble
+  #my $lc_vtca; # Active strings treble to bass
+  
+  $this = shift(@_);
+  $lc_mode = shift(@_);
+  $lc_rmode = scalar reverse $lc_mode;
+  $lc_stb = $strumbx->ingtr($this);
+  $lc_call = [caller(1)];
+  
+  $this->add_bar();
+  
+  $this->tochord(shift(@_),$lc_call);
+  _beat($this,chop($lc_rmode),$lc_stb,$lc_call);
+  $this->tochord(shift(@_),$lc_call);
+  _beat($this,chop($lc_rmode),$lc_stb,$lc_call);
+  $this->tochord(shift(@_),$lc_call);
+  _beat($this,chop($lc_rmode),$lc_stb,$lc_call);
+  $this->tochord(shift(@_),$lc_call);
+  _beat($this,chop($lc_rmode),$lc_stb,$lc_call);
+  
+  $this->add_bar();
+});
+
+
+sub apply {
+  my $this;
+  my $lc_gt; # The guitar
+  my $lc_pf; # The prefix
+  my $lc_stb;
+  
+  # Get the arguments
+  $this = shift(@_);
+  $lc_gt = shift(@_);
+  $lc_pf = shift(@_);
+  if ( !(defined($lc_pf)) ) { $lc_pf = ''; }
+  
+  $lc_stb = $strumbx->ingtr($lc_gt);
+  $lc_stb->insert($lc_pf);
+}
+
+
+1;
