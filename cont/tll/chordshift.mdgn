@@ -1,0 +1,230 @@
+# tll/chordshif.mdgn Standalone MDGN class for catalog-independent chord-name transposition
+# Copyright (C) 2026  Sophia Elizabeth Shapira
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.s
+
+use strict;
+use warnings;
+use utf8;
+
+# Natural note pitch classes, counting semitones above C.
+my %note_pitch = (
+  'C' => 0,
+  'D' => 2,
+  'E' => 4,
+  'F' => 5,
+  'G' => 7,
+  'A' => 9,
+  'B' => 11,
+);
+
+# Conventional pitch names; separate tables retain an existing
+# preference for sharps or flats when the target key cannot help.
+my @common_names = (
+  'C','Db','D','Eb','E','F','F#','G','Ab','A','Bb','B'
+);
+my @sharp_names = (
+  'C','C#','D','D#','E','F','F#','G','G#','A','A#','B'
+);
+my @flat_names = (
+  'C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'
+);
+
+# Semitone distances of degrees 1 through 7 from a scale's tonic.
+my @major_steps = (0,2,4,5,7,9,11);
+my @minor_steps = (0,2,3,5,7,8,10);
+
+
+sub transpose_chord {
+  # Class method: transpose a chord name by an integer number of semitones.
+  # Arguments: chord name, integer offset, optional hashref with 'targkey'.
+  # Return the new chord name, or undef for an invalid offset or root.
+  # All other information in the name stays unchanged.
+
+  my $this;       # Class on which this method was invoked.
+  my $lc_name;    # Original chord name.
+  my $lc_steps;   # Signed number of semitones to transpose.
+  my $lc_context; # Optional hashref containing the desired target key.
+  my $lc_parts;   # Parsed [prefix, root, suffix, slash, slash note].
+  my $lc_root;    # Transposed chord root, with its final spelling.
+  my $lc_bass;    # Transposed slash note, when one exists.
+
+  # Obtain arguments, and reject noninteger transpositions.
+  $this = shift(@_);
+  $lc_name = shift(@_);
+  $lc_steps = shift(@_);
+  $lc_context = shift(@_);
+  if ( !defined($lc_steps) || ref($lc_steps) ) { return undef; }
+  if ( $lc_steps !~ /\A[+-]?[0-9]+\z/ ) { return undef; }
+  if ( ref($lc_context) ne 'HASH' ) { $lc_context = {}; }
+
+  # Split the name without needing or consulting a chord catalog.
+  $lc_parts = _split_chord($lc_name);
+  if ( !defined($lc_parts) ) { return undef; }
+
+  # Transpose the root, and then the separate slash note if present.
+  $lc_root = _transpose_note($lc_parts->[1],$lc_steps);
+  $lc_root = _spell_pitch_class($lc_root,$lc_parts->[1],$lc_steps,$lc_context);
+  $lc_bass = '';
+  if ( $lc_parts->[4] ne '' )
+  {
+    $lc_bass = _transpose_note($lc_parts->[4],$lc_steps);
+    $lc_bass = _spell_pitch_class($lc_bass,$lc_parts->[4],$lc_steps,$lc_context);
+  }
+
+  # Restore the prefix, suffix, and original / or // separator.
+  return $lc_parts->[0] . $lc_root . $lc_parts->[2] . $lc_parts->[3] . $lc_bass;
+}
+
+
+sub _split_chord {
+  # Parse a chord into [numeric prefix, root, suffix, slash, slash note].
+  # Only a trailing /NOTE or //NOTE introduces a slash note;
+  # the slash in a modifier such as 6/9 remains part of the suffix.
+  # Return undef if the chord does not begin with a valid root.
+
+  my $lc_name;   # Original chord name.
+  my $lc_parts;  # Five parsed components to return.
+  my $lc_suffix; # Chord name after its root, before slash extraction.
+
+  # Require a note letter, allowing a numeric prefix and accidentals.
+  $lc_name = shift(@_);
+  if ( !defined($lc_name) || ref($lc_name) ) { return undef; }
+  if ( $lc_name !~ /\A([0-9]*)([A-G](?:[#♯]{1,2}|[b♭]{1,2})?)(.*)\z/s )
+  {
+    return undef;
+  }
+  $lc_parts = [$1,$2,$3,'',''];
+  $lc_suffix = $lc_parts->[2];
+
+  # Extract the final slash and its note; leave everything else opaque.
+  if ( $lc_suffix =~ m{\A(.*?)(//?)([A-G](?:[#♯]{1,2}|[b♭]{1,2})?)\z}s )
+  {
+    $lc_parts->[2] = $1;
+    $lc_parts->[3] = $2;
+    $lc_parts->[4] = $3;
+  }
+  return $lc_parts;
+}
+
+
+sub _transpose_note {
+  # Convert a spelled note plus a semitone offset to pitch class 0..11.
+  # This calculates pitch only; it does not choose an enharmonic name.
+
+  my $lc_note;       # Written note to convert.
+  my $lc_steps;      # Signed transposition amount.
+  my $lc_letter;     # Natural note letter, A through G.
+  my $lc_accidental; # Sharp(s) or flat(s) following the letter.
+  my $lc_pitch;      # Numeric pitch class after transposition.
+
+  # Separate the note letter from its accidental symbols.
+  $lc_note = shift(@_);
+  $lc_steps = shift(@_);
+  $lc_note =~ s/♯/#/g;
+  $lc_note =~ s/♭/b/g;
+  $lc_letter = substr($lc_note,0,1);
+  $lc_accidental = substr($lc_note,1);
+
+  # Start with the natural pitch and add accidentals and the offset.
+  $lc_pitch = $note_pitch{$lc_letter} + $lc_steps;
+  if ( $lc_accidental =~ /#/ ) { $lc_pitch += length($lc_accidental); }
+  if ( $lc_accidental =~ /b/ ) { $lc_pitch -= length($lc_accidental); }
+  return $lc_pitch % 12;
+}
+
+
+sub _spell_pitch_class {
+  # Spell a pitch class, preferring the target key when possible.
+  # Otherwise keep the old note unchanged for octave transpositions,
+  # or use a conventional name that respects its old accidental.
+  # Never return a double sharp or double flat.
+
+  my $lc_pitch;    # Numeric transposed pitch, 0..11.
+  my $lc_old;      # Original note spelling.
+  my $lc_steps;    # Signed transposition amount.
+  my $lc_context;  # Optional context containing the target key.
+  my $lc_spelling; # Spelling supplied by the target key, if applicable.
+
+  # Let the supplied key decide the spelling of its scale notes.
+  $lc_pitch = shift(@_);
+  $lc_old = shift(@_);
+  $lc_steps = shift(@_);
+  $lc_context = shift(@_);
+  if ( defined($lc_context->{'targkey'}) )
+  {
+    $lc_spelling = _spell_from_key($lc_pitch,$lc_context->{'targkey'});
+    if ( defined($lc_spelling) ) { return $lc_spelling; }
+  }
+
+  # Otherwise, preserve spelling for transpositions by whole octaves.
+  # The exception is a double accidental, which must be simplified.
+  if ( ($lc_steps % 12) == 0 && $lc_old !~ /(?:[#♯]{2}|[b♭]{2})/ ) { return $lc_old; }
+
+  # Prefer the original accidental direction, falling back to defaults.
+  if ( $lc_old =~ /[#♯]/ ) { return $sharp_names[$lc_pitch]; }
+  if ( $lc_old =~ /[b♭]/ ) { return $flat_names[$lc_pitch]; }
+  return $common_names[$lc_pitch];
+}
+
+
+sub _spell_from_key {
+  # If the pitch belongs to the specified major or natural minor scale,
+  # spell it with that scale's letter and at most one accidental.
+  # 'D' means D major; 'Dm' means D natural minor.
+  # Invalid keys and out-of-scale pitches return undef.
+
+  my $lc_pitch;  # Pitch class whose spelling is wanted.
+  my $lc_key;    # Target key supplied by the caller.
+  my $lc_tonic;  # Named tonic, including any accidental.
+  my $lc_steps;  # Seven intervals of the selected scale.
+  my $lc_first;  # Tonic letter's position in CDEFGAB.
+  my $lc_degree; # Index of a scale degree, 0 through 6.
+  my $lc_letter; # Natural letter of the matching scale degree.
+  my $lc_diff;   # Accidentals required to spell the wanted pitch.
+
+  # Validate the key spelling, keeping the caller's chosen tonic.
+  $lc_pitch = shift(@_);
+  $lc_key = shift(@_);
+  if ( !defined($lc_key) || ref($lc_key) ) { return undef; }
+  $lc_key =~ s/♯/#/g;
+  $lc_key =~ s/♭/b/g;
+  if ( $lc_key !~ /\A([A-G][#b]?)(m|maj)?\z/ ) { return undef; }
+  $lc_tonic = $1;
+
+  # Select the scale and locate the tonic's note letter.
+  $lc_steps = \@major_steps;
+  if ( $lc_key =~ /m\z/ ) { $lc_steps = \@minor_steps; }
+  $lc_first = index('CDEFGAB',substr($lc_tonic,0,1));
+
+  # Look for the wanted pitch among the scale's seven degrees.
+  foreach $lc_degree (0 .. 6)
+  {
+    if ( _transpose_note($lc_tonic,$lc_steps->[$lc_degree]) != $lc_pitch ) { next; }
+    $lc_letter = substr('CDEFGAB',($lc_first + $lc_degree) % 7,1);
+    $lc_diff = ($lc_pitch - $note_pitch{$lc_letter} + 12) % 12;
+
+    # Keep the scale letter unless it would need a double accidental.
+    if ( $lc_diff == 0 ) { return $lc_letter; }
+    if ( $lc_diff == 1 ) { return $lc_letter . '#'; }
+    if ( $lc_diff == 11 ) { return $lc_letter . 'b'; }
+    if ( $lc_diff == 2 ) { return $sharp_names[$lc_pitch]; }
+    if ( $lc_diff == 10 ) { return $flat_names[$lc_pitch]; }
+  }
+
+  # Out-of-scale notes use the ordinary fallback spelling instead.
+  return undef;
+}
+
+1;
