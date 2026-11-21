@@ -1,156 +1,1070 @@
+
 {
   "meta": {
     "instrument": "six-string guitar",
-    "tuning": ["E2","A2","D3","G3","B3","E4"],
-    "description": "Blues, rock and folk-rock chord voicings; twelve roots and eleven chord types",
-    "chord_types": ["major","minor","minor seventh","power","dominant seventh","dominant ninth","dominant thirteenth","major sixth","sixth/ninth","dominant seventh sharp ninth","dominant seventh suspended fourth"],
+    "tuning": ["E2", "A2", "D3", "G3", "B3", "E4"],
+    "description": "Blues and rock six-string guitar chords; nearest-headstock first versions for twelve chromatic roots and eleven chord types.",
+    "chord_types": ["major", "minor", "minor seventh", "power", "dominant seventh", "dominant ninth", "dominant thirteenth", "major sixth", "sixth/ninth", "dominant seventh sharp ninth", "dominant seventh suspended fourth"],
     "string_order": "low E to high E; controller indices 1 through 6",
-    "fngr_convention": "0=no finger; otherwise two digits (finger, contact position); second digit 0=tip, 1-6=barre position counting from ceilingmost contact; ~ indicates partial supersession",
-    "aud_convention": "0=excluded from sounding; 1=sounding; excluded strings retain physical fingering information"
+    "fngr_convention": "0=unfretted; otherwise two digits (finger, contact position); second digit 0=tip, 1-6=barre contact counting from ceilingmost contact; skipped contacts retain absolute positions.",
+    "aud_convention": "0=excluded from sounding; 1=sounding; excluded strings retain their actual fretting when under a barre."
   },
   "crdx": [
-    {"nomx":["C","B#"],"neck":[{"fret":8,"fngr":"11","aud":1},{"fret":10,"fngr":"30","aud":1},{"fret":10,"fngr":"40","aud":1},{"fret":9,"fngr":"20","aud":1},{"fret":8,"fngr":"15","aud":1},{"fret":8,"fngr":"16","aud":1}]},
-    {"nomx":["Cm","B#m"],"neck":[{"fret":8,"fngr":"11","aud":1},{"fret":10,"fngr":"30","aud":1},{"fret":10,"fngr":"40","aud":1},{"fret":8,"fngr":"14","aud":1},{"fret":8,"fngr":"15","aud":1},{"fret":8,"fngr":"16","aud":1}]},
-    {"nomx":["Cm7","B#m7"],"neck":[{"fret":8,"fngr":"11","aud":1},{"fret":10,"fngr":"30","aud":1},{"fret":8,"fngr":"13","aud":1},{"fret":8,"fngr":"14","aud":1},{"fret":8,"fngr":"15","aud":1},{"fret":8,"fngr":"16","aud":1}]},
-    {"nomx":["C5","B#5"],"neck":[{"fret":8,"fngr":"10","aud":1},{"fret":10,"fngr":"30","aud":1},{"fret":10,"fngr":"40","aud":1},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0}]},
-    {"nomx":["C7","B#7"],"neck":[{"fret":8,"fngr":"11","aud":1},{"fret":10,"fngr":"30","aud":1},{"fret":8,"fngr":"13","aud":1},{"fret":9,"fngr":"20","aud":1},{"fret":8,"fngr":"15","aud":1},{"fret":8,"fngr":"16","aud":1}]},
-    {"nomx":["C9","B#9"],"neck":[{"fret":8,"fngr":"11","aud":1},{"fret":10,"fngr":"30","aud":1},{"fret":8,"fngr":"13","aud":1},{"fret":9,"fngr":"20","aud":1},{"fret":8,"fngr":"15","aud":1},{"fret":10,"fngr":"40","aud":1}]},
-    {"nomx":["C13","B#13"],"neck":[{"fret":8,"fngr":"11","aud":1},{"fret":10,"fngr":"30","aud":1},{"fret":8,"fngr":"13","aud":1},{"fret":9,"fngr":"20","aud":1},{"fret":10,"fngr":"40","aud":1},{"fret":8,"fngr":"16","aud":1}]},
-    {"nomx":["C6","B#6"],"neck":[{"fret":8,"fngr":"11","aud":1},{"fret":8,"fngr":"12","aud":0},{"fret":10,"fngr":"30","aud":1},{"fret":9,"fngr":"20","aud":1},{"fret":10,"fngr":"40","aud":1},{"fret":8,"fngr":"16","aud":1}]},
-    {"nomx":["C6/9","B#6/9"],"neck":[{"fret":8,"fngr":"11","aud":1},{"fret":8,"fngr":"12","aud":0},{"fret":8,"fngr":"13","aud":0},{"fret":9,"fngr":"20","aud":1},{"fret":10,"fngr":"30","aud":1},{"fret":10,"fngr":"40","aud":1}]},
-    {"nomx":["C7#9","B#7#9"],"neck":[{"fret":8,"fngr":"11","aud":1},{"fret":8,"fngr":"12","aud":0},{"fret":8,"fngr":"13","aud":1},{"fret":9,"fngr":"20","aud":1},{"fret":11,"fngr":"30","aud":1},{"fret":11,"fngr":"40","aud":1}]},
-    {"nomx":["C7sus4","B#7sus4"],"neck":[{"fret":8,"fngr":"11","aud":1},{"fret":10,"fngr":"20","aud":1},{"fret":8,"fngr":"13","aud":1},{"fret":10,"fngr":"30","aud":1},{"fret":8,"fngr":"15","aud":1},{"fret":8,"fngr":"16","aud":1}]},
-
-    {"nomx":["C#","Db"],"neck":[{"fret":9,"fngr":"11","aud":1},{"fret":11,"fngr":"30","aud":1},{"fret":11,"fngr":"40","aud":1},{"fret":10,"fngr":"20","aud":1},{"fret":9,"fngr":"15","aud":1},{"fret":9,"fngr":"16","aud":1}]},
-    {"nomx":["C#m","Dbm"],"neck":[{"fret":9,"fngr":"11","aud":1},{"fret":11,"fngr":"30","aud":1},{"fret":11,"fngr":"40","aud":1},{"fret":9,"fngr":"14","aud":1},{"fret":9,"fngr":"15","aud":1},{"fret":9,"fngr":"16","aud":1}]},
-    {"nomx":["C#m7","Dbm7"],"neck":[{"fret":9,"fngr":"11","aud":1},{"fret":11,"fngr":"30","aud":1},{"fret":9,"fngr":"13","aud":1},{"fret":9,"fngr":"14","aud":1},{"fret":9,"fngr":"15","aud":1},{"fret":9,"fngr":"16","aud":1}]},
-    {"nomx":["C#5","Db5"],"neck":[{"fret":9,"fngr":"10","aud":1},{"fret":11,"fngr":"30","aud":1},{"fret":11,"fngr":"40","aud":1},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0}]},
-    {"nomx":["C#7","Db7"],"neck":[{"fret":9,"fngr":"11","aud":1},{"fret":11,"fngr":"30","aud":1},{"fret":9,"fngr":"13","aud":1},{"fret":10,"fngr":"20","aud":1},{"fret":9,"fngr":"15","aud":1},{"fret":9,"fngr":"16","aud":1}]},
-    {"nomx":["C#9","Db9"],"neck":[{"fret":9,"fngr":"11","aud":1},{"fret":11,"fngr":"30","aud":1},{"fret":9,"fngr":"13","aud":1},{"fret":10,"fngr":"20","aud":1},{"fret":9,"fngr":"15","aud":1},{"fret":11,"fngr":"40","aud":1}]},
-    {"nomx":["C#13","Db13"],"neck":[{"fret":9,"fngr":"11","aud":1},{"fret":11,"fngr":"30","aud":1},{"fret":9,"fngr":"13","aud":1},{"fret":10,"fngr":"20","aud":1},{"fret":11,"fngr":"40","aud":1},{"fret":9,"fngr":"16","aud":1}]},
-    {"nomx":["C#6","Db6"],"neck":[{"fret":9,"fngr":"11","aud":1},{"fret":9,"fngr":"12","aud":0},{"fret":11,"fngr":"30","aud":1},{"fret":10,"fngr":"20","aud":1},{"fret":11,"fngr":"40","aud":1},{"fret":9,"fngr":"16","aud":1}]},
-    {"nomx":["C#6/9","Db6/9"],"neck":[{"fret":9,"fngr":"11","aud":1},{"fret":9,"fngr":"12","aud":0},{"fret":9,"fngr":"13","aud":0},{"fret":10,"fngr":"20","aud":1},{"fret":11,"fngr":"30","aud":1},{"fret":11,"fngr":"40","aud":1}]},
-    {"nomx":["C#7#9","Db7#9"],"neck":[{"fret":9,"fngr":"11","aud":1},{"fret":9,"fngr":"12","aud":0},{"fret":9,"fngr":"13","aud":1},{"fret":10,"fngr":"20","aud":1},{"fret":12,"fngr":"30","aud":1},{"fret":12,"fngr":"40","aud":1}]},
-    {"nomx":["C#7sus4","Db7sus4"],"neck":[{"fret":9,"fngr":"11","aud":1},{"fret":11,"fngr":"20","aud":1},{"fret":9,"fngr":"13","aud":1},{"fret":11,"fngr":"30","aud":1},{"fret":9,"fngr":"15","aud":1},{"fret":9,"fngr":"16","aud":1}]},
-
-    {"nomx":["D"],"neck":[{"fret":10,"fngr":"11","aud":1},{"fret":12,"fngr":"30","aud":1},{"fret":12,"fngr":"40","aud":1},{"fret":11,"fngr":"20","aud":1},{"fret":10,"fngr":"15","aud":1},{"fret":10,"fngr":"16","aud":1}]},
-    {"nomx":["Dm"],"neck":[{"fret":10,"fngr":"11","aud":1},{"fret":12,"fngr":"30","aud":1},{"fret":12,"fngr":"40","aud":1},{"fret":10,"fngr":"14","aud":1},{"fret":10,"fngr":"15","aud":1},{"fret":10,"fngr":"16","aud":1}]},
-    {"nomx":["Dm7"],"neck":[{"fret":10,"fngr":"11","aud":1},{"fret":12,"fngr":"30","aud":1},{"fret":10,"fngr":"13","aud":1},{"fret":10,"fngr":"14","aud":1},{"fret":10,"fngr":"15","aud":1},{"fret":10,"fngr":"16","aud":1}]},
-    {"nomx":["D5"],"neck":[{"fret":10,"fngr":"10","aud":1},{"fret":12,"fngr":"30","aud":1},{"fret":12,"fngr":"40","aud":1},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0}]},
-    {"nomx":["D7"],"neck":[{"fret":10,"fngr":"11","aud":1},{"fret":12,"fngr":"30","aud":1},{"fret":10,"fngr":"13","aud":1},{"fret":11,"fngr":"20","aud":1},{"fret":10,"fngr":"15","aud":1},{"fret":10,"fngr":"16","aud":1}]},
-    {"nomx":["D9"],"neck":[{"fret":10,"fngr":"11","aud":1},{"fret":12,"fngr":"30","aud":1},{"fret":10,"fngr":"13","aud":1},{"fret":11,"fngr":"20","aud":1},{"fret":10,"fngr":"15","aud":1},{"fret":12,"fngr":"40","aud":1}]},
-    {"nomx":["D13"],"neck":[{"fret":10,"fngr":"11","aud":1},{"fret":12,"fngr":"30","aud":1},{"fret":10,"fngr":"13","aud":1},{"fret":11,"fngr":"20","aud":1},{"fret":12,"fngr":"40","aud":1},{"fret":10,"fngr":"16","aud":1}]},
-    {"nomx":["D6"],"neck":[{"fret":10,"fngr":"11","aud":1},{"fret":10,"fngr":"12","aud":0},{"fret":12,"fngr":"30","aud":1},{"fret":11,"fngr":"20","aud":1},{"fret":12,"fngr":"40","aud":1},{"fret":10,"fngr":"16","aud":1}]},
-    {"nomx":["D6/9"],"neck":[{"fret":10,"fngr":"11","aud":1},{"fret":10,"fngr":"12","aud":0},{"fret":10,"fngr":"13","aud":0},{"fret":11,"fngr":"20","aud":1},{"fret":12,"fngr":"30","aud":1},{"fret":12,"fngr":"40","aud":1}]},
-    {"nomx":["D7#9"],"neck":[{"fret":10,"fngr":"11","aud":1},{"fret":10,"fngr":"12","aud":0},{"fret":10,"fngr":"13","aud":1},{"fret":11,"fngr":"20","aud":1},{"fret":13,"fngr":"30","aud":1},{"fret":13,"fngr":"40","aud":1}]},
-    {"nomx":["D7sus4"],"neck":[{"fret":10,"fngr":"11","aud":1},{"fret":12,"fngr":"20","aud":1},{"fret":10,"fngr":"13","aud":1},{"fret":12,"fngr":"30","aud":1},{"fret":10,"fngr":"15","aud":1},{"fret":10,"fngr":"16","aud":1}]},
-
-    {"nomx":["D#","Eb"],"neck":[{"fret":11,"fngr":"11","aud":1},{"fret":13,"fngr":"30","aud":1},{"fret":13,"fngr":"40","aud":1},{"fret":12,"fngr":"20","aud":1},{"fret":11,"fngr":"15","aud":1},{"fret":11,"fngr":"16","aud":1}]},
-    {"nomx":["D#m","Ebm"],"neck":[{"fret":11,"fngr":"11","aud":1},{"fret":13,"fngr":"30","aud":1},{"fret":13,"fngr":"40","aud":1},{"fret":11,"fngr":"14","aud":1},{"fret":11,"fngr":"15","aud":1},{"fret":11,"fngr":"16","aud":1}]},
-    {"nomx":["D#m7","Ebm7"],"neck":[{"fret":11,"fngr":"11","aud":1},{"fret":13,"fngr":"30","aud":1},{"fret":11,"fngr":"13","aud":1},{"fret":11,"fngr":"14","aud":1},{"fret":11,"fngr":"15","aud":1},{"fret":11,"fngr":"16","aud":1}]},
-    {"nomx":["D#5","Eb5"],"neck":[{"fret":11,"fngr":"10","aud":1},{"fret":13,"fngr":"30","aud":1},{"fret":13,"fngr":"40","aud":1},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0}]},
-    {"nomx":["D#7","Eb7"],"neck":[{"fret":11,"fngr":"11","aud":1},{"fret":13,"fngr":"30","aud":1},{"fret":11,"fngr":"13","aud":1},{"fret":12,"fngr":"20","aud":1},{"fret":11,"fngr":"15","aud":1},{"fret":11,"fngr":"16","aud":1}]},
-    {"nomx":["D#9","Eb9"],"neck":[{"fret":11,"fngr":"11","aud":1},{"fret":13,"fngr":"30","aud":1},{"fret":11,"fngr":"13","aud":1},{"fret":12,"fngr":"20","aud":1},{"fret":11,"fngr":"15","aud":1},{"fret":13,"fngr":"40","aud":1}]},
-    {"nomx":["D#13","Eb13"],"neck":[{"fret":11,"fngr":"11","aud":1},{"fret":13,"fngr":"30","aud":1},{"fret":11,"fngr":"13","aud":1},{"fret":12,"fngr":"20","aud":1},{"fret":13,"fngr":"40","aud":1},{"fret":11,"fngr":"16","aud":1}]},
-    {"nomx":["D#6","Eb6"],"neck":[{"fret":11,"fngr":"11","aud":1},{"fret":11,"fngr":"12","aud":0},{"fret":13,"fngr":"30","aud":1},{"fret":12,"fngr":"20","aud":1},{"fret":13,"fngr":"40","aud":1},{"fret":11,"fngr":"16","aud":1}]},
-    {"nomx":["D#6/9","Eb6/9"],"neck":[{"fret":11,"fngr":"11","aud":1},{"fret":11,"fngr":"12","aud":0},{"fret":11,"fngr":"13","aud":0},{"fret":12,"fngr":"20","aud":1},{"fret":13,"fngr":"30","aud":1},{"fret":13,"fngr":"40","aud":1}]},
-    {"nomx":["D#7#9","Eb7#9"],"neck":[{"fret":11,"fngr":"11","aud":1},{"fret":11,"fngr":"12","aud":0},{"fret":11,"fngr":"13","aud":1},{"fret":12,"fngr":"20","aud":1},{"fret":14,"fngr":"30","aud":1},{"fret":14,"fngr":"40","aud":1}]},
-    {"nomx":["D#7sus4","Eb7sus4"],"neck":[{"fret":11,"fngr":"11","aud":1},{"fret":13,"fngr":"20","aud":1},{"fret":11,"fngr":"13","aud":1},{"fret":13,"fngr":"30","aud":1},{"fret":11,"fngr":"15","aud":1},{"fret":11,"fngr":"16","aud":1}]},
-
-    {"nomx":["E","Fb"],"neck":[{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":2,"fngr":"30","aud":1},{"fret":1,"fngr":"10","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":0,"fngr":"0","aud":1}]},
-    {"nomx":["Em","Fbm"],"neck":[{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":2,"fngr":"30","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":0,"fngr":"0","aud":1}]},
-    {"nomx":["Em7","Fbm7"],"neck":[{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":0,"fngr":"0","aud":1}]},
-    {"nomx":["E5","Fb5"],"neck":[{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"10","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0}]},
-    {"nomx":["E7","Fb7"],"neck":[{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":1,"fngr":"10","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":0,"fngr":"0","aud":1}]},
-    {"nomx":["E9","Fb9"],"neck":[{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":1,"fngr":"10","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"30","aud":1}]},
-    {"nomx":["E13","Fb13"],"neck":[{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":1,"fngr":"10","aud":1},{"fret":2,"fngr":"30","aud":1},{"fret":0,"fngr":"0","aud":1}]},
-    {"nomx":["E6","Fb6"],"neck":[{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":2,"fngr":"30","aud":1},{"fret":1,"fngr":"10","aud":1},{"fret":2,"fngr":"40","aud":1},{"fret":0,"fngr":"0","aud":1}]},
-    {"nomx":["E6/9","Fb6/9"],"neck":[{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":4,"fngr":"40","aud":1},{"fret":1,"fngr":"10","aud":1},{"fret":2,"fngr":"30","aud":1},{"fret":0,"fngr":"0","aud":1}]},
-    {"nomx":["E7#9","Fb7#9"],"neck":[{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":1,"fngr":"10","aud":1},{"fret":3,"fngr":"30","aud":1},{"fret":3,"fngr":"40","aud":1}]},
-    {"nomx":["E7sus4","Fb7sus4"],"neck":[{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"10","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":0,"fngr":"0","aud":1},{"fret":0,"fngr":"0","aud":1}]},
-
-    {"nomx":["F","E#"],"neck":[{"fret":1,"fngr":"11","aud":1},{"fret":3,"fngr":"30","aud":1},{"fret":3,"fngr":"40","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":1,"fngr":"15","aud":1},{"fret":1,"fngr":"16","aud":1}]},
-    {"nomx":["Fm","E#m"],"neck":[{"fret":1,"fngr":"11","aud":1},{"fret":3,"fngr":"30","aud":1},{"fret":3,"fngr":"40","aud":1},{"fret":1,"fngr":"14","aud":1},{"fret":1,"fngr":"15","aud":1},{"fret":1,"fngr":"16","aud":1}]},
-    {"nomx":["Fm7","E#m7"],"neck":[{"fret":1,"fngr":"11","aud":1},{"fret":3,"fngr":"30","aud":1},{"fret":1,"fngr":"13","aud":1},{"fret":1,"fngr":"14","aud":1},{"fret":1,"fngr":"15","aud":1},{"fret":1,"fngr":"16","aud":1}]},
-    {"nomx":["F5","E#5"],"neck":[{"fret":1,"fngr":"10","aud":1},{"fret":3,"fngr":"30","aud":1},{"fret":3,"fngr":"40","aud":1},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0}]},
-    {"nomx":["F7","E#7"],"neck":[{"fret":1,"fngr":"11","aud":1},{"fret":3,"fngr":"30","aud":1},{"fret":1,"fngr":"13","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":1,"fngr":"15","aud":1},{"fret":1,"fngr":"16","aud":1}]},
-    {"nomx":["F9","E#9"],"neck":[{"fret":1,"fngr":"11","aud":1},{"fret":3,"fngr":"30","aud":1},{"fret":1,"fngr":"13","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":1,"fngr":"15","aud":1},{"fret":3,"fngr":"40","aud":1}]},
-    {"nomx":["F13","E#13"],"neck":[{"fret":1,"fngr":"11","aud":1},{"fret":3,"fngr":"30","aud":1},{"fret":1,"fngr":"13","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":3,"fngr":"40","aud":1},{"fret":1,"fngr":"16","aud":1}]},
-    {"nomx":["F6","E#6"],"neck":[{"fret":1,"fngr":"11","aud":1},{"fret":1,"fngr":"12","aud":0},{"fret":3,"fngr":"30","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":3,"fngr":"40","aud":1},{"fret":1,"fngr":"16","aud":1}]},
-    {"nomx":["F6/9","E#6/9"],"neck":[{"fret":1,"fngr":"11","aud":1},{"fret":1,"fngr":"12","aud":0},{"fret":1,"fngr":"13","aud":0},{"fret":2,"fngr":"20","aud":1},{"fret":3,"fngr":"30","aud":1},{"fret":3,"fngr":"40","aud":1}]},
-    {"nomx":["F7#9","E#7#9"],"neck":[{"fret":1,"fngr":"11","aud":1},{"fret":1,"fngr":"12","aud":0},{"fret":1,"fngr":"13","aud":1},{"fret":2,"fngr":"20","aud":1},{"fret":4,"fngr":"30","aud":1},{"fret":4,"fngr":"40","aud":1}]},
-    {"nomx":["F7sus4","E#7sus4"],"neck":[{"fret":1,"fngr":"11","aud":1},{"fret":3,"fngr":"20","aud":1},{"fret":1,"fngr":"13","aud":1},{"fret":3,"fngr":"30","aud":1},{"fret":1,"fngr":"15","aud":1},{"fret":1,"fngr":"16","aud":1}]},
-
-    {"nomx":["F#","Gb"],"neck":[{"fret":2,"fngr":"11","aud":1},{"fret":4,"fngr":"30","aud":1},{"fret":4,"fngr":"40","aud":1},{"fret":3,"fngr":"20","aud":1},{"fret":2,"fngr":"15","aud":1},{"fret":2,"fngr":"16","aud":1}]},
-    {"nomx":["F#m","Gbm"],"neck":[{"fret":2,"fngr":"11","aud":1},{"fret":4,"fngr":"30","aud":1},{"fret":4,"fngr":"40","aud":1},{"fret":2,"fngr":"14","aud":1},{"fret":2,"fngr":"15","aud":1},{"fret":2,"fngr":"16","aud":1}]},
-    {"nomx":["F#m7","Gbm7"],"neck":[{"fret":2,"fngr":"11","aud":1},{"fret":4,"fngr":"30","aud":1},{"fret":2,"fngr":"13","aud":1},{"fret":2,"fngr":"14","aud":1},{"fret":2,"fngr":"15","aud":1},{"fret":2,"fngr":"16","aud":1}]},
-    {"nomx":["F#5","Gb5"],"neck":[{"fret":2,"fngr":"10","aud":1},{"fret":4,"fngr":"30","aud":1},{"fret":4,"fngr":"40","aud":1},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0}]},
-    {"nomx":["F#7","Gb7"],"neck":[{"fret":2,"fngr":"11","aud":1},{"fret":4,"fngr":"30","aud":1},{"fret":2,"fngr":"13","aud":1},{"fret":3,"fngr":"20","aud":1},{"fret":2,"fngr":"15","aud":1},{"fret":2,"fngr":"16","aud":1}]},
-    {"nomx":["F#9","Gb9"],"neck":[{"fret":2,"fngr":"11","aud":1},{"fret":4,"fngr":"30","aud":1},{"fret":2,"fngr":"13","aud":1},{"fret":3,"fngr":"20","aud":1},{"fret":2,"fngr":"15","aud":1},{"fret":4,"fngr":"40","aud":1}]},
-    {"nomx":["F#13","Gb13"],"neck":[{"fret":2,"fngr":"11","aud":1},{"fret":4,"fngr":"30","aud":1},{"fret":2,"fngr":"13","aud":1},{"fret":3,"fngr":"20","aud":1},{"fret":4,"fngr":"40","aud":1},{"fret":2,"fngr":"16","aud":1}]},
-    {"nomx":["F#6","Gb6"],"neck":[{"fret":2,"fngr":"11","aud":1},{"fret":2,"fngr":"12","aud":0},{"fret":4,"fngr":"30","aud":1},{"fret":3,"fngr":"20","aud":1},{"fret":4,"fngr":"40","aud":1},{"fret":2,"fngr":"16","aud":1}]},
-    {"nomx":["F#6/9","Gb6/9"],"neck":[{"fret":2,"fngr":"11","aud":1},{"fret":2,"fngr":"12","aud":0},{"fret":2,"fngr":"13","aud":0},{"fret":3,"fngr":"20","aud":1},{"fret":4,"fngr":"30","aud":1},{"fret":4,"fngr":"40","aud":1}]},
-    {"nomx":["F#7#9","Gb7#9"],"neck":[{"fret":2,"fngr":"11","aud":1},{"fret":2,"fngr":"12","aud":0},{"fret":2,"fngr":"13","aud":1},{"fret":3,"fngr":"20","aud":1},{"fret":5,"fngr":"30","aud":1},{"fret":5,"fngr":"40","aud":1}]},
-    {"nomx":["F#7sus4","Gb7sus4"],"neck":[{"fret":2,"fngr":"11","aud":1},{"fret":4,"fngr":"20","aud":1},{"fret":2,"fngr":"13","aud":1},{"fret":4,"fngr":"30","aud":1},{"fret":2,"fngr":"15","aud":1},{"fret":2,"fngr":"16","aud":1}]},
-
-    {"nomx":["G"],"neck":[{"fret":3,"fngr":"11","aud":1},{"fret":5,"fngr":"30","aud":1},{"fret":5,"fngr":"40","aud":1},{"fret":4,"fngr":"20","aud":1},{"fret":3,"fngr":"15","aud":1},{"fret":3,"fngr":"16","aud":1}]},
-    {"nomx":["Gm"],"neck":[{"fret":3,"fngr":"11","aud":1},{"fret":5,"fngr":"30","aud":1},{"fret":5,"fngr":"40","aud":1},{"fret":3,"fngr":"14","aud":1},{"fret":3,"fngr":"15","aud":1},{"fret":3,"fngr":"16","aud":1}]},
-    {"nomx":["Gm7"],"neck":[{"fret":3,"fngr":"11","aud":1},{"fret":5,"fngr":"30","aud":1},{"fret":3,"fngr":"13","aud":1},{"fret":3,"fngr":"14","aud":1},{"fret":3,"fngr":"15","aud":1},{"fret":3,"fngr":"16","aud":1}]},
-    {"nomx":["G5"],"neck":[{"fret":3,"fngr":"10","aud":1},{"fret":5,"fngr":"30","aud":1},{"fret":5,"fngr":"40","aud":1},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0}]},
-    {"nomx":["G7"],"neck":[{"fret":3,"fngr":"11","aud":1},{"fret":5,"fngr":"30","aud":1},{"fret":3,"fngr":"13","aud":1},{"fret":4,"fngr":"20","aud":1},{"fret":3,"fngr":"15","aud":1},{"fret":3,"fngr":"16","aud":1}]},
-    {"nomx":["G9"],"neck":[{"fret":3,"fngr":"11","aud":1},{"fret":5,"fngr":"30","aud":1},{"fret":3,"fngr":"13","aud":1},{"fret":4,"fngr":"20","aud":1},{"fret":3,"fngr":"15","aud":1},{"fret":5,"fngr":"40","aud":1}]},
-    {"nomx":["G13"],"neck":[{"fret":3,"fngr":"11","aud":1},{"fret":5,"fngr":"30","aud":1},{"fret":3,"fngr":"13","aud":1},{"fret":4,"fngr":"20","aud":1},{"fret":5,"fngr":"40","aud":1},{"fret":3,"fngr":"16","aud":1}]},
-    {"nomx":["G6"],"neck":[{"fret":3,"fngr":"11","aud":1},{"fret":3,"fngr":"12","aud":0},{"fret":5,"fngr":"30","aud":1},{"fret":4,"fngr":"20","aud":1},{"fret":5,"fngr":"40","aud":1},{"fret":3,"fngr":"16","aud":1}]},
-    {"nomx":["G6/9"],"neck":[{"fret":3,"fngr":"11","aud":1},{"fret":3,"fngr":"12","aud":0},{"fret":3,"fngr":"13","aud":0},{"fret":4,"fngr":"20","aud":1},{"fret":5,"fngr":"30","aud":1},{"fret":5,"fngr":"40","aud":1}]},
-    {"nomx":["G7#9"],"neck":[{"fret":3,"fngr":"11","aud":1},{"fret":3,"fngr":"12","aud":0},{"fret":3,"fngr":"13","aud":1},{"fret":4,"fngr":"20","aud":1},{"fret":6,"fngr":"30","aud":1},{"fret":6,"fngr":"40","aud":1}]},
-    {"nomx":["G7sus4"],"neck":[{"fret":3,"fngr":"11","aud":1},{"fret":5,"fngr":"20","aud":1},{"fret":3,"fngr":"13","aud":1},{"fret":5,"fngr":"30","aud":1},{"fret":3,"fngr":"15","aud":1},{"fret":3,"fngr":"16","aud":1}]},
-
-    {"nomx":["G#","Ab"],"neck":[{"fret":4,"fngr":"11","aud":1},{"fret":6,"fngr":"30","aud":1},{"fret":6,"fngr":"40","aud":1},{"fret":5,"fngr":"20","aud":1},{"fret":4,"fngr":"15","aud":1},{"fret":4,"fngr":"16","aud":1}]},
-    {"nomx":["G#m","Abm"],"neck":[{"fret":4,"fngr":"11","aud":1},{"fret":6,"fngr":"30","aud":1},{"fret":6,"fngr":"40","aud":1},{"fret":4,"fngr":"14","aud":1},{"fret":4,"fngr":"15","aud":1},{"fret":4,"fngr":"16","aud":1}]},
-    {"nomx":["G#m7","Abm7"],"neck":[{"fret":4,"fngr":"11","aud":1},{"fret":6,"fngr":"30","aud":1},{"fret":4,"fngr":"13","aud":1},{"fret":4,"fngr":"14","aud":1},{"fret":4,"fngr":"15","aud":1},{"fret":4,"fngr":"16","aud":1}]},
-    {"nomx":["G#5","Ab5"],"neck":[{"fret":4,"fngr":"10","aud":1},{"fret":6,"fngr":"30","aud":1},{"fret":6,"fngr":"40","aud":1},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0}]},
-    {"nomx":["G#7","Ab7"],"neck":[{"fret":4,"fngr":"11","aud":1},{"fret":6,"fngr":"30","aud":1},{"fret":4,"fngr":"13","aud":1},{"fret":5,"fngr":"20","aud":1},{"fret":4,"fngr":"15","aud":1},{"fret":4,"fngr":"16","aud":1}]},
-    {"nomx":["G#9","Ab9"],"neck":[{"fret":4,"fngr":"11","aud":1},{"fret":6,"fngr":"30","aud":1},{"fret":4,"fngr":"13","aud":1},{"fret":5,"fngr":"20","aud":1},{"fret":4,"fngr":"15","aud":1},{"fret":6,"fngr":"40","aud":1}]},
-    {"nomx":["G#13","Ab13"],"neck":[{"fret":4,"fngr":"11","aud":1},{"fret":6,"fngr":"30","aud":1},{"fret":4,"fngr":"13","aud":1},{"fret":5,"fngr":"20","aud":1},{"fret":6,"fngr":"40","aud":1},{"fret":4,"fngr":"16","aud":1}]},
-    {"nomx":["G#6","Ab6"],"neck":[{"fret":4,"fngr":"11","aud":1},{"fret":4,"fngr":"12","aud":0},{"fret":6,"fngr":"30","aud":1},{"fret":5,"fngr":"20","aud":1},{"fret":6,"fngr":"40","aud":1},{"fret":4,"fngr":"16","aud":1}]},
-    {"nomx":["G#6/9","Ab6/9"],"neck":[{"fret":4,"fngr":"11","aud":1},{"fret":4,"fngr":"12","aud":0},{"fret":4,"fngr":"13","aud":0},{"fret":5,"fngr":"20","aud":1},{"fret":6,"fngr":"30","aud":1},{"fret":6,"fngr":"40","aud":1}]},
-    {"nomx":["G#7#9","Ab7#9"],"neck":[{"fret":4,"fngr":"11","aud":1},{"fret":4,"fngr":"12","aud":0},{"fret":4,"fngr":"13","aud":1},{"fret":5,"fngr":"20","aud":1},{"fret":7,"fngr":"30","aud":1},{"fret":7,"fngr":"40","aud":1}]},
-    {"nomx":["G#7sus4","Ab7sus4"],"neck":[{"fret":4,"fngr":"11","aud":1},{"fret":6,"fngr":"20","aud":1},{"fret":4,"fngr":"13","aud":1},{"fret":6,"fngr":"30","aud":1},{"fret":4,"fngr":"15","aud":1},{"fret":4,"fngr":"16","aud":1}]},
-
-    {"nomx":["A"],"neck":[{"fret":5,"fngr":"11","aud":1},{"fret":7,"fngr":"30","aud":1},{"fret":7,"fngr":"40","aud":1},{"fret":6,"fngr":"20","aud":1},{"fret":5,"fngr":"15","aud":1},{"fret":5,"fngr":"16","aud":1}]},
-    {"nomx":["Am"],"neck":[{"fret":5,"fngr":"11","aud":1},{"fret":7,"fngr":"30","aud":1},{"fret":7,"fngr":"40","aud":1},{"fret":5,"fngr":"14","aud":1},{"fret":5,"fngr":"15","aud":1},{"fret":5,"fngr":"16","aud":1}]},
-    {"nomx":["Am7"],"neck":[{"fret":5,"fngr":"11","aud":1},{"fret":7,"fngr":"30","aud":1},{"fret":5,"fngr":"13","aud":1},{"fret":5,"fngr":"14","aud":1},{"fret":5,"fngr":"15","aud":1},{"fret":5,"fngr":"16","aud":1}]},
-    {"nomx":["A5"],"neck":[{"fret":5,"fngr":"10","aud":1},{"fret":7,"fngr":"30","aud":1},{"fret":7,"fngr":"40","aud":1},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0}]},
-    {"nomx":["A7"],"neck":[{"fret":5,"fngr":"11","aud":1},{"fret":7,"fngr":"30","aud":1},{"fret":5,"fngr":"13","aud":1},{"fret":6,"fngr":"20","aud":1},{"fret":5,"fngr":"15","aud":1},{"fret":5,"fngr":"16","aud":1}]},
-    {"nomx":["A9"],"neck":[{"fret":5,"fngr":"11","aud":1},{"fret":7,"fngr":"30","aud":1},{"fret":5,"fngr":"13","aud":1},{"fret":6,"fngr":"20","aud":1},{"fret":5,"fngr":"15","aud":1},{"fret":7,"fngr":"40","aud":1}]},
-    {"nomx":["A13"],"neck":[{"fret":5,"fngr":"11","aud":1},{"fret":7,"fngr":"30","aud":1},{"fret":5,"fngr":"13","aud":1},{"fret":6,"fngr":"20","aud":1},{"fret":7,"fngr":"40","aud":1},{"fret":5,"fngr":"16","aud":1}]},
-    {"nomx":["A6"],"neck":[{"fret":5,"fngr":"11","aud":1},{"fret":5,"fngr":"12","aud":0},{"fret":7,"fngr":"30","aud":1},{"fret":6,"fngr":"20","aud":1},{"fret":7,"fngr":"40","aud":1},{"fret":5,"fngr":"16","aud":1}]},
-    {"nomx":["A6/9"],"neck":[{"fret":5,"fngr":"11","aud":1},{"fret":5,"fngr":"12","aud":0},{"fret":5,"fngr":"13","aud":0},{"fret":6,"fngr":"20","aud":1},{"fret":7,"fngr":"30","aud":1},{"fret":7,"fngr":"40","aud":1}]},
-    {"nomx":["A7#9"],"neck":[{"fret":5,"fngr":"11","aud":1},{"fret":5,"fngr":"12","aud":0},{"fret":5,"fngr":"13","aud":1},{"fret":6,"fngr":"20","aud":1},{"fret":8,"fngr":"30","aud":1},{"fret":8,"fngr":"40","aud":1}]},
-    {"nomx":["A7sus4"],"neck":[{"fret":5,"fngr":"11","aud":1},{"fret":7,"fngr":"20","aud":1},{"fret":5,"fngr":"13","aud":1},{"fret":7,"fngr":"30","aud":1},{"fret":5,"fngr":"15","aud":1},{"fret":5,"fngr":"16","aud":1}]},
-
-    {"nomx":["A#","Bb"],"neck":[{"fret":6,"fngr":"11","aud":1},{"fret":8,"fngr":"30","aud":1},{"fret":8,"fngr":"40","aud":1},{"fret":7,"fngr":"20","aud":1},{"fret":6,"fngr":"15","aud":1},{"fret":6,"fngr":"16","aud":1}]},
-    {"nomx":["A#m","Bbm"],"neck":[{"fret":6,"fngr":"11","aud":1},{"fret":8,"fngr":"30","aud":1},{"fret":8,"fngr":"40","aud":1},{"fret":6,"fngr":"14","aud":1},{"fret":6,"fngr":"15","aud":1},{"fret":6,"fngr":"16","aud":1}]},
-    {"nomx":["A#m7","Bbm7"],"neck":[{"fret":6,"fngr":"11","aud":1},{"fret":8,"fngr":"30","aud":1},{"fret":6,"fngr":"13","aud":1},{"fret":6,"fngr":"14","aud":1},{"fret":6,"fngr":"15","aud":1},{"fret":6,"fngr":"16","aud":1}]},
-    {"nomx":["A#5","Bb5"],"neck":[{"fret":6,"fngr":"10","aud":1},{"fret":8,"fngr":"30","aud":1},{"fret":8,"fngr":"40","aud":1},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0}]},
-    {"nomx":["A#7","Bb7"],"neck":[{"fret":6,"fngr":"11","aud":1},{"fret":8,"fngr":"30","aud":1},{"fret":6,"fngr":"13","aud":1},{"fret":7,"fngr":"20","aud":1},{"fret":6,"fngr":"15","aud":1},{"fret":6,"fngr":"16","aud":1}]},
-    {"nomx":["A#9","Bb9"],"neck":[{"fret":6,"fngr":"11","aud":1},{"fret":8,"fngr":"30","aud":1},{"fret":6,"fngr":"13","aud":1},{"fret":7,"fngr":"20","aud":1},{"fret":6,"fngr":"15","aud":1},{"fret":8,"fngr":"40","aud":1}]},
-    {"nomx":["A#13","Bb13"],"neck":[{"fret":6,"fngr":"11","aud":1},{"fret":8,"fngr":"30","aud":1},{"fret":6,"fngr":"13","aud":1},{"fret":7,"fngr":"20","aud":1},{"fret":8,"fngr":"40","aud":1},{"fret":6,"fngr":"16","aud":1}]},
-    {"nomx":["A#6","Bb6"],"neck":[{"fret":6,"fngr":"11","aud":1},{"fret":6,"fngr":"12","aud":0},{"fret":8,"fngr":"30","aud":1},{"fret":7,"fngr":"20","aud":1},{"fret":8,"fngr":"40","aud":1},{"fret":6,"fngr":"16","aud":1}]},
-    {"nomx":["A#6/9","Bb6/9"],"neck":[{"fret":6,"fngr":"11","aud":1},{"fret":6,"fngr":"12","aud":0},{"fret":6,"fngr":"13","aud":0},{"fret":7,"fngr":"20","aud":1},{"fret":8,"fngr":"30","aud":1},{"fret":8,"fngr":"40","aud":1}]},
-    {"nomx":["A#7#9","Bb7#9"],"neck":[{"fret":6,"fngr":"11","aud":1},{"fret":6,"fngr":"12","aud":0},{"fret":6,"fngr":"13","aud":1},{"fret":7,"fngr":"20","aud":1},{"fret":9,"fngr":"30","aud":1},{"fret":9,"fngr":"40","aud":1}]},
-    {"nomx":["A#7sus4","Bb7sus4"],"neck":[{"fret":6,"fngr":"11","aud":1},{"fret":8,"fngr":"20","aud":1},{"fret":6,"fngr":"13","aud":1},{"fret":8,"fngr":"30","aud":1},{"fret":6,"fngr":"15","aud":1},{"fret":6,"fngr":"16","aud":1}]},
-
-    {"nomx":["B","Cb"],"neck":[{"fret":7,"fngr":"11","aud":1},{"fret":9,"fngr":"30","aud":1},{"fret":9,"fngr":"40","aud":1},{"fret":8,"fngr":"20","aud":1},{"fret":7,"fngr":"15","aud":1},{"fret":7,"fngr":"16","aud":1}]},
-    {"nomx":["Bm","Cbm"],"neck":[{"fret":7,"fngr":"11","aud":1},{"fret":9,"fngr":"30","aud":1},{"fret":9,"fngr":"40","aud":1},{"fret":7,"fngr":"14","aud":1},{"fret":7,"fngr":"15","aud":1},{"fret":7,"fngr":"16","aud":1}]},
-    {"nomx":["Bm7","Cbm7"],"neck":[{"fret":7,"fngr":"11","aud":1},{"fret":9,"fngr":"30","aud":1},{"fret":7,"fngr":"13","aud":1},{"fret":7,"fngr":"14","aud":1},{"fret":7,"fngr":"15","aud":1},{"fret":7,"fngr":"16","aud":1}]},
-    {"nomx":["B5","Cb5"],"neck":[{"fret":7,"fngr":"10","aud":1},{"fret":9,"fngr":"30","aud":1},{"fret":9,"fngr":"40","aud":1},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0},{"fret":0,"fngr":"0","aud":0}]},
-    {"nomx":["B7","Cb7"],"neck":[{"fret":7,"fngr":"11","aud":1},{"fret":9,"fngr":"30","aud":1},{"fret":7,"fngr":"13","aud":1},{"fret":8,"fngr":"20","aud":1},{"fret":7,"fngr":"15","aud":1},{"fret":7,"fngr":"16","aud":1}]},
-    {"nomx":["B9","Cb9"],"neck":[{"fret":7,"fngr":"11","aud":1},{"fret":9,"fngr":"30","aud":1},{"fret":7,"fngr":"13","aud":1},{"fret":8,"fngr":"20","aud":1},{"fret":7,"fngr":"15","aud":1},{"fret":9,"fngr":"40","aud":1}]},
-    {"nomx":["B13","Cb13"],"neck":[{"fret":7,"fngr":"11","aud":1},{"fret":9,"fngr":"30","aud":1},{"fret":7,"fngr":"13","aud":1},{"fret":8,"fngr":"20","aud":1},{"fret":9,"fngr":"40","aud":1},{"fret":7,"fngr":"16","aud":1}]},
-    {"nomx":["B6","Cb6"],"neck":[{"fret":7,"fngr":"11","aud":1},{"fret":7,"fngr":"12","aud":0},{"fret":9,"fngr":"30","aud":1},{"fret":8,"fngr":"20","aud":1},{"fret":9,"fngr":"40","aud":1},{"fret":7,"fngr":"16","aud":1}]},
-    {"nomx":["B6/9","Cb6/9"],"neck":[{"fret":7,"fngr":"11","aud":1},{"fret":7,"fngr":"12","aud":0},{"fret":7,"fngr":"13","aud":0},{"fret":8,"fngr":"20","aud":1},{"fret":9,"fngr":"30","aud":1},{"fret":9,"fngr":"40","aud":1}]},
-    {"nomx":["B7#9","Cb7#9"],"neck":[{"fret":7,"fngr":"11","aud":1},{"fret":7,"fngr":"12","aud":0},{"fret":7,"fngr":"13","aud":1},{"fret":8,"fngr":"20","aud":1},{"fret":10,"fngr":"30","aud":1},{"fret":10,"fngr":"40","aud":1}]},
-    {"nomx":["B7sus4","Cb7sus4"],"neck":[{"fret":7,"fngr":"11","aud":1},{"fret":9,"fngr":"20","aud":1},{"fret":7,"fngr":"13","aud":1},{"fret":9,"fngr":"30","aud":1},{"fret":7,"fngr":"15","aud":1},{"fret":7,"fngr":"16","aud":1}]}
+    {"nomx": ["C", "B#", "1C", "1B#"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["Cm", "B#m", "1Cm", "1B#m"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "20", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["Cm7", "B#m7", "1Cm7", "1B#m7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 3, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["C5", "B#5", "1C5", "1B#5"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 3, "fngr": "10", "aud": 1},
+      {"fret": 5, "fngr": "30", "aud": 1},
+      {"fret": 5, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["C7", "B#7", "1C7", "1B#7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["C9", "B#9", "1C9", "1B#9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "31", "aud": 1},
+      {"fret": 3, "fngr": "32", "aud": 1},
+      {"fret": 3, "fngr": "33", "aud": 1}
+    ]},
+    {"nomx": ["C13", "B#13", "1C13", "1B#13"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "31", "aud": 1},
+      {"fret": 3, "fngr": "32", "aud": 1},
+      {"fret": 5, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["C6", "B#6", "1C6", "1B#6"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "21", "aud": 1},
+      {"fret": 2, "fngr": "22", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["C6/9", "B#6/9", "1C6/9", "1B#6/9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "11", "aud": 1},
+      {"fret": 2, "fngr": "12", "aud": 1},
+      {"fret": 3, "fngr": "31", "aud": 1},
+      {"fret": 3, "fngr": "32", "aud": 1}
+    ]},
+    {"nomx": ["C7#9", "B#7#9", "1C7#9", "1B#7#9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "31", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 3, "fngr": "33", "aud": 1}
+    ]},
+    {"nomx": ["C7sus4", "B#7sus4", "1C7sus4", "1B#7sus4"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 3, "fngr": "31", "aud": 1},
+      {"fret": 3, "fngr": "32", "aud": 1},
+      {"fret": 3, "fngr": "33", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["C#", "Db", "1C#", "1Db"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1}
+    ]},
+    {"nomx": ["C#m", "Dbm", "1C#m", "1Dbm"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["C#m7", "Dbm7", "1C#m7", "1Dbm7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["C#5", "Db5", "1C#5", "1Db5"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 4, "fngr": "10", "aud": 1},
+      {"fret": 6, "fngr": "30", "aud": 1},
+      {"fret": 6, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["C#7", "Db7", "1C#7", "1Db7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["C#9", "Db9", "1C#9", "1Db9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["C#13", "Db13", "1C#13", "1Db13"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 4, "fngr": "20", "aud": 1},
+      {"fret": 3, "fngr": "10", "aud": 1},
+      {"fret": 4, "fngr": "31", "aud": 1},
+      {"fret": 4, "fngr": "32", "aud": 1},
+      {"fret": 6, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["C#6", "Db6", "1C#6", "1Db6"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 3, "fngr": "21", "aud": 1},
+      {"fret": 3, "fngr": "22", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1}
+    ]},
+    {"nomx": ["C#6/9", "Db6/9", "1C#6/9", "1Db6/9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 4, "fngr": "20", "aud": 1},
+      {"fret": 3, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "12", "aud": 1},
+      {"fret": 4, "fngr": "31", "aud": 1},
+      {"fret": 4, "fngr": "32", "aud": 1}
+    ]},
+    {"nomx": ["C#7#9", "Db7#9", "1C#7#9", "1Db7#9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["C#7sus4", "Db7sus4", "1C#7sus4", "1Db7sus4"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["D", "1D"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["Dm", "1Dm"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1}
+    ]},
+    {"nomx": ["Dm7", "1Dm7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1}
+    ]},
+    {"nomx": ["D5", "1D5"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["D7", "1D7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1}
+    ]},
+    {"nomx": ["D9", "1D9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 5, "fngr": "30", "aud": 1},
+      {"fret": 5, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1}
+    ]},
+    {"nomx": ["D13", "1D13"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["D6", "1D6"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["D6/9", "1D6/9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 4, "fngr": "20", "aud": 1},
+      {"fret": 5, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1}
+    ]},
+    {"nomx": ["D7#9", "1D7#9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 5, "fngr": "20", "aud": 1},
+      {"fret": 4, "fngr": "10", "aud": 1},
+      {"fret": 5, "fngr": "31", "aud": 1},
+      {"fret": 6, "fngr": "40", "aud": 1},
+      {"fret": 5, "fngr": "33", "aud": 1}
+    ]},
+    {"nomx": ["D7sus4", "1D7sus4"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1}
+    ]},
+    {"nomx": ["D#", "Eb", "1D#", "1Eb"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1}
+    ]},
+    {"nomx": ["D#m", "Ebm", "1D#m", "1Ebm"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["D#m7", "Ebm7", "1D#m7", "1Ebm7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "21", "aud": 1},
+      {"fret": 2, "fngr": "22", "aud": 1}
+    ]},
+    {"nomx": ["D#5", "Eb5", "1D#5", "1Eb5"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["D#7", "Eb7", "1D#7", "1Eb7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["D#9", "Eb9", "1D#9", "1Eb9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["D#13", "Eb13", "1D#13", "1Eb13"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 6, "fngr": "20", "aud": 1},
+      {"fret": 5, "fngr": "10", "aud": 1},
+      {"fret": 6, "fngr": "31", "aud": 1},
+      {"fret": 6, "fngr": "32", "aud": 1},
+      {"fret": 8, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["D#6", "Eb6", "1D#6", "1Eb6"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["D#6/9", "Eb6/9", "1D#6/9", "1Eb6/9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "21", "aud": 1},
+      {"fret": 1, "fngr": "22", "aud": 1}
+    ]},
+    {"nomx": ["D#7#9", "Eb7#9", "1D#7#9", "1Eb7#9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "21", "aud": 1},
+      {"fret": 2, "fngr": "22", "aud": 1}
+    ]},
+    {"nomx": ["D#7sus4", "Eb7sus4", "1D#7sus4", "1Eb7sus4"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["E", "Fb", "1E", "1Fb"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["Em", "Fbm", "1Em", "1Fbm"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["Em7", "Fbm7", "1Em7", "1Fbm7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["E5", "Fb5", "1E5", "1Fb5"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["E7", "Fb7", "1E7", "1Fb7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["E9", "Fb9", "1E9", "1Fb9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["E13", "Fb13", "1E13", "1Fb13"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["E6", "Fb6", "1E6", "1Fb6"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["E6/9", "Fb6/9", "1E6/9", "1Fb6/9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["E7#9", "Fb7#9", "1E7#9", "1Fb7#9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["E7sus4", "Fb7sus4", "1E7sus4", "1Fb7sus4"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["F", "E#", "1F", "1E#"], "neck": [
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "15", "aud": 1},
+      {"fret": 1, "fngr": "16", "aud": 1}
+    ]},
+    {"nomx": ["Fm", "E#m", "1Fm", "1E#m"], "neck": [
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "14", "aud": 1},
+      {"fret": 1, "fngr": "15", "aud": 1},
+      {"fret": 1, "fngr": "16", "aud": 1}
+    ]},
+    {"nomx": ["Fm7", "E#m7", "1Fm7", "1E#m7"], "neck": [
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 1, "fngr": "14", "aud": 1},
+      {"fret": 1, "fngr": "15", "aud": 1},
+      {"fret": 1, "fngr": "16", "aud": 1}
+    ]},
+    {"nomx": ["F5", "E#5", "1F5", "1E#5"], "neck": [
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["F7", "E#7", "1F7", "1E#7"], "neck": [
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "15", "aud": 1},
+      {"fret": 1, "fngr": "16", "aud": 1}
+    ]},
+    {"nomx": ["F9", "E#9", "1F9", "1E#9"], "neck": [
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "15", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["F13", "E#13", "1F13", "1E#13"], "neck": [
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 3, "fngr": "41", "aud": 1},
+      {"fret": 3, "fngr": "42", "aud": 1}
+    ]},
+    {"nomx": ["F6", "E#6", "1F6", "1E#6"], "neck": [
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "31", "aud": 1},
+      {"fret": 3, "fngr": "32", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "16", "aud": 1}
+    ]},
+    {"nomx": ["F6/9", "E#6/9", "1F6/9", "1E#6/9"], "neck": [
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 3, "fngr": "41", "aud": 1},
+      {"fret": 3, "fngr": "42", "aud": 1}
+    ]},
+    {"nomx": ["F7#9", "E#7#9", "1F7#9", "1E#7#9"], "neck": [
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 4, "fngr": "41", "aud": 1},
+      {"fret": 4, "fngr": "42", "aud": 1}
+    ]},
+    {"nomx": ["F7sus4", "E#7sus4", "1F7sus4", "1E#7sus4"], "neck": [
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "15", "aud": 1},
+      {"fret": 1, "fngr": "16", "aud": 1}
+    ]},
+    {"nomx": ["F#", "Gb", "1F#", "1Gb"], "neck": [
+      {"fret": 2, "fngr": "11", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "15", "aud": 1},
+      {"fret": 2, "fngr": "16", "aud": 1}
+    ]},
+    {"nomx": ["F#m", "Gbm", "1F#m", "1Gbm"], "neck": [
+      {"fret": 2, "fngr": "11", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "14", "aud": 1},
+      {"fret": 2, "fngr": "15", "aud": 1},
+      {"fret": 2, "fngr": "16", "aud": 1}
+    ]},
+    {"nomx": ["F#m7", "Gbm7", "1F#m7", "1Gbm7"], "neck": [
+      {"fret": 2, "fngr": "11", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "13", "aud": 1},
+      {"fret": 2, "fngr": "14", "aud": 1},
+      {"fret": 2, "fngr": "15", "aud": 1},
+      {"fret": 2, "fngr": "16", "aud": 1}
+    ]},
+    {"nomx": ["F#5", "Gb5", "1F#5", "1Gb5"], "neck": [
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["F#7", "Gb7", "1F#7", "1Gb7"], "neck": [
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["F#9", "Gb9", "1F#9", "1Gb9"], "neck": [
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 2, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["F#13", "Gb13", "1F#13", "1Gb13"], "neck": [
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 2, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["F#6", "Gb6", "1F#6", "1Gb6"], "neck": [
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["F#6/9", "Gb6/9", "1F#6/9", "1Gb6/9"], "neck": [
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["F#7#9", "Gb7#9", "1F#7#9", "1Gb7#9"], "neck": [
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "41", "aud": 1},
+      {"fret": 2, "fngr": "42", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["F#7sus4", "Gb7sus4", "1F#7sus4", "1Gb7sus4"], "neck": [
+      {"fret": 2, "fngr": "11", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "13", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "15", "aud": 1},
+      {"fret": 2, "fngr": "16", "aud": 1}
+    ]},
+    {"nomx": ["G", "1G"], "neck": [
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1}
+    ]},
+    {"nomx": ["Gm", "1Gm"], "neck": [
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["Gm7", "1Gm7"], "neck": [
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["G5", "1G5"], "neck": [
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["G7", "1G7"], "neck": [
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1}
+    ]},
+    {"nomx": ["G9", "1G9"], "neck": [
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1}
+    ]},
+    {"nomx": ["G13", "1G13"], "neck": [
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1}
+    ]},
+    {"nomx": ["G6", "1G6"], "neck": [
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["G6/9", "1G6/9"], "neck": [
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "11", "aud": 1},
+      {"fret": 2, "fngr": "12", "aud": 1},
+      {"fret": 2, "fngr": "13", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["G7#9", "1G7#9"], "neck": [
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["G7sus4", "1G7sus4"], "neck": [
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1}
+    ]},
+    {"nomx": ["G#", "Ab", "1G#", "1Ab"], "neck": [
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["G#m", "Abm", "1G#m", "1Abm"], "neck": [
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["G#m7", "Abm7", "1G#m7", "1Abm7"], "neck": [
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["G#5", "Ab5", "1G#5", "1Ab5"], "neck": [
+      {"fret": 4, "fngr": "10", "aud": 1},
+      {"fret": 6, "fngr": "30", "aud": 1},
+      {"fret": 6, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["G#7", "Ab7", "1G#7", "1Ab7"], "neck": [
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["G#9", "Ab9", "1G#9", "1Ab9"], "neck": [
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 1, "fngr": "14", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["G#13", "Ab13", "1G#13", "1Ab13"], "neck": [
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 1, "fngr": "14", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["G#6", "Ab6", "1G#6", "1Ab6"], "neck": [
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 1, "fngr": "14", "aud": 1}
+    ]},
+    {"nomx": ["G#6/9", "Ab6/9", "1G#6/9", "1Ab6/9"], "neck": [
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 1, "fngr": "14", "aud": 1},
+      {"fret": 1, "fngr": "15", "aud": 1}
+    ]},
+    {"nomx": ["G#7#9", "Ab7#9", "1G#7#9", "1Ab7#9"], "neck": [
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["G#7sus4", "Ab7sus4", "1G#7sus4", "1Ab7sus4"], "neck": [
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 2, "fngr": "21", "aud": 1},
+      {"fret": 2, "fngr": "22", "aud": 1}
+    ]},
+    {"nomx": ["A", "1A"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["Am", "1Am"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["Am7", "1Am7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["A5", "1A5"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["A7", "1A7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["A9", "1A9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1}
+    ]},
+    {"nomx": ["A13", "1A13"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1}
+    ]},
+    {"nomx": ["A6", "1A6"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "11", "aud": 1},
+      {"fret": 2, "fngr": "12", "aud": 1},
+      {"fret": 2, "fngr": "13", "aud": 1},
+      {"fret": 2, "fngr": "14", "aud": 1}
+    ]},
+    {"nomx": ["A6/9", "1A6/9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1}
+    ]},
+    {"nomx": ["A7#9", "1A7#9"], "neck": [
+      {"fret": 5, "fngr": "30", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "11", "aud": 1},
+      {"fret": 5, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "13", "aud": 1},
+      {"fret": 3, "fngr": "20", "aud": 1}
+    ]},
+    {"nomx": ["A7sus4", "1A7sus4"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1}
+    ]},
+    {"nomx": ["A#", "Bb", "1A#", "1Bb"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "31", "aud": 1},
+      {"fret": 3, "fngr": "32", "aud": 1},
+      {"fret": 3, "fngr": "33", "aud": 1},
+      {"fret": 1, "fngr": "15", "aud": 1}
+    ]},
+    {"nomx": ["A#m", "Bbm", "1A#m", "1Bbm"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "15", "aud": 1}
+    ]},
+    {"nomx": ["A#m7", "Bbm7", "1A#m7", "1Bbm7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "15", "aud": 1}
+    ]},
+    {"nomx": ["A#5", "Bb5", "1A#5", "1Bb5"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["A#7", "Bb7", "1A#7", "1Bb7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "15", "aud": 1}
+    ]},
+    {"nomx": ["A#9", "Bb9", "1A#9", "1Bb9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "31", "aud": 1},
+      {"fret": 1, "fngr": "32", "aud": 1},
+      {"fret": 1, "fngr": "33", "aud": 1}
+    ]},
+    {"nomx": ["A#13", "Bb13", "1A#13", "1Bb13"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "31", "aud": 1},
+      {"fret": 1, "fngr": "32", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["A#6", "Bb6", "1A#6", "1Bb6"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 3, "fngr": "31", "aud": 1},
+      {"fret": 3, "fngr": "32", "aud": 1},
+      {"fret": 3, "fngr": "33", "aud": 1},
+      {"fret": 3, "fngr": "34", "aud": 1}
+    ]},
+    {"nomx": ["A#6/9", "Bb6/9", "1A#6/9", "1Bb6/9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "31", "aud": 1},
+      {"fret": 1, "fngr": "32", "aud": 1}
+    ]},
+    {"nomx": ["A#7#9", "Bb7#9", "1A#7#9", "1Bb7#9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 1, "fngr": "21", "aud": 1},
+      {"fret": 2, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "23", "aud": 1}
+    ]},
+    {"nomx": ["A#7sus4", "Bb7sus4", "1A#7sus4", "1Bb7sus4"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 3, "fngr": "30", "aud": 1},
+      {"fret": 1, "fngr": "13", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 1, "fngr": "15", "aud": 1}
+    ]},
+    {"nomx": ["B", "Cb", "1B", "1Cb"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1}
+    ]},
+    {"nomx": ["Bm", "Cbm", "1Bm", "1Cbm"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "11", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "15", "aud": 1}
+    ]},
+    {"nomx": ["Bm7", "Cbm7", "1Bm7", "1Cbm7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "11", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "13", "aud": 1},
+      {"fret": 3, "fngr": "20", "aud": 1},
+      {"fret": 2, "fngr": "15", "aud": 1}
+    ]},
+    {"nomx": ["B5", "Cb5", "1B5", "1Cb5"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "10", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 0, "fngr": "0", "aud": 0}
+    ]},
+    {"nomx": ["B7", "Cb7", "1B7", "1Cb7"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["B9", "Cb9", "1B9", "1Cb9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "31", "aud": 1},
+      {"fret": 2, "fngr": "32", "aud": 1},
+      {"fret": 2, "fngr": "33", "aud": 1}
+    ]},
+    {"nomx": ["B13", "Cb13", "1B13", "1Cb13"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "31", "aud": 1},
+      {"fret": 2, "fngr": "32", "aud": 1},
+      {"fret": 4, "fngr": "40", "aud": 1}
+    ]},
+    {"nomx": ["B6", "Cb6", "1B6", "1Cb6"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 0, "fngr": "0", "aud": 1},
+      {"fret": 2, "fngr": "30", "aud": 1}
+    ]},
+    {"nomx": ["B6/9", "Cb6/9", "1B6/9", "1Cb6/9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "11", "aud": 1},
+      {"fret": 1, "fngr": "12", "aud": 1},
+      {"fret": 2, "fngr": "31", "aud": 1},
+      {"fret": 2, "fngr": "32", "aud": 1}
+    ]},
+    {"nomx": ["B7#9", "Cb7#9", "1B7#9", "1Cb7#9"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "20", "aud": 1},
+      {"fret": 1, "fngr": "10", "aud": 1},
+      {"fret": 2, "fngr": "31", "aud": 1},
+      {"fret": 3, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "33", "aud": 1}
+    ]},
+    {"nomx": ["B7sus4", "Cb7sus4", "1B7sus4", "1Cb7sus4"], "neck": [
+      {"fret": 0, "fngr": "0", "aud": 0},
+      {"fret": 2, "fngr": "11", "aud": 1},
+      {"fret": 4, "fngr": "30", "aud": 1},
+      {"fret": 2, "fngr": "13", "aud": 1},
+      {"fret": 5, "fngr": "40", "aud": 1},
+      {"fret": 2, "fngr": "15", "aud": 1}
+    ]}
   ]
 }

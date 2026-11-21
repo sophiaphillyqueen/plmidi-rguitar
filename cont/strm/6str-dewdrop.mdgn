@@ -1,0 +1,252 @@
+# 6str-dewdrop.mdgn -- Dew-drop finger-pick pattern (for 6-string)
+# Copyright (C) 2026  Sophia Elizabeth Shapira
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+use strict;
+
+my $strum_laz = 12;
+my $strum_spw = .9;
+my $strum_sspw = .95;
+
+our $PLUGINS_BAR;
+our $PLUGIN_DIRNAME;
+
+my $respack = $PLUGINS_BAR->find_this_bundle($PLUGIN_DIRNAME);
+
+my $strumbx = $PLUGINS_BAR->fsplug([($respack . '/tll/strumhand.mdgn'),'StrumHand']);
+
+sub _dubeat {
+  my $this;
+  my $lc_pram;
+  my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  my $lc_acnm;
+  my $lc_vol;
+  my $lc_phase;
+  my $lc_grub;
+  
+  $this = shift(@_);
+  $lc_pram = shift(@_);
+  $lc_call = shift(@_);
+  $lc_vol = 80;
+  
+  $lc_phase = _rfgt($lc_pram,'rep');
+  
+  $lc_grub = undef;
+  if (!defined($lc_grub) )
+  {
+    $lc_grub = _rfgt($lc_pram,'now','fill');
+  }
+  
+  $lc_actv = $this->audstr();
+  $lc_vtca = $this->raudstr();
+  
+  if ( $lc_grub )
+  {
+    $lc_actv = _grdubo($lc_actv);
+    $lc_vtca = _grdubo($lc_vtca);
+  }
+  
+  $lc_acnm = scalar(@$lc_actv);
+  if ( $lc_acnm < 1 )
+  {
+    $this->ford(2);
+    return;
+  }
+  if ( $lc_acnm < 3 )
+  {
+    $this->play(($lc_actv->[0]),{'vel'=>$lc_vol});
+    $this->ford(1);
+    $this->play(($lc_vtca->[0]),{'vel'=>$lc_vol});
+    $this->ford(1);
+    return;
+  }
+  if ( $lc_acnm < 4 )
+  {
+    $this->play(($lc_actv->[0]),{'vel'=>$lc_vol});
+    $this->ford(1);
+    $this->play(($lc_vtca->[0]),{'vel'=>$lc_vol});
+    $this->ford(0,2);
+    $this->play(($lc_actv->[1]),{'vel'=>$lc_vol});
+    $this->ford(0,2);
+    return;
+  }
+  if ( $lc_acnm < 5 )
+  {
+    $this->play(($lc_actv->[0]),{'vel'=>$lc_vol});
+    $this->ford(0,2);
+    $this->play(($lc_vtca->[0]),{'vel'=>$lc_vol});
+    $this->ford(0,2);
+    $this->play(($lc_actv->[1]),{'vel'=>$lc_vol});
+    $this->ford(0,2);
+    $this->play(($lc_vtca->[1]),{'vel'=>$lc_vol});
+    $this->ford(0,2);
+    return;
+  }
+  if ( $lc_acnm < 6 )
+  {
+    $this->play(($lc_actv->[0]),{'vel'=>$lc_vol});
+    $this->ford(0,2);
+    $this->play(($lc_vtca->[0]),{'vel'=>$lc_vol});
+    $this->ford(0,2);
+    $this->play(($lc_actv->[1]),{'vel'=>$lc_vol});
+    $this->ford(0,1);
+    $this->play(($lc_vtca->[1]),{'vel'=>$lc_vol});
+    $this->ford(0,1);
+    $this->play(($lc_actv->[2]),{'vel'=>$lc_vol});
+    $this->ford(0,2);
+    return;
+  }
+  $this->play(($lc_actv->[0]),{'vel'=>$lc_vol});
+  $this->ford(0,2);
+  $this->play(($lc_vtca->[0]),{'vel'=>$lc_vol});
+  $this->ford(0,2);
+  $this->play(($lc_actv->[1]),{'vel'=>$lc_vol});
+  $this->ford(0,1);
+  $this->play(($lc_vtca->[1]),{'vel'=>$lc_vol});
+  $this->ford(0,1);
+  $this->play(($lc_actv->[2]),{'vel'=>$lc_vol});
+  $this->ford(0,1);
+  $this->play(($lc_vtca->[2]),{'vel'=>$lc_vol});
+  $this->ford(0,1);
+  return;
+}
+
+
+$strumbx->newstrum('main',sub {
+  my $this;
+  my $lc_pram; # Hashref of options
+  my $lc_call;
+  $this = shift(@_);
+  $lc_pram = shift(@_);
+  $lc_call = [caller(1)];
+  
+  $this->add_bar();
+  
+  $this->tochord(shift(@_),$lc_call);
+  _dubeat($this,{ 'rep' => 0, 'now' => $lc_pram, });
+  $this->tochord(shift(@_),$lc_call);
+  _dubeat($this,{ 'rep' => 1, 'now' => $lc_pram, });
+  
+  $this->tochord(shift(@_),$lc_call);
+  
+  $this->add_bar();
+});
+
+$strumbx->newstrum('fin1',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  my $lc_pram;
+  
+  $this = shift(@_);
+  $lc_stb = $strumbx->ingtr($this);
+  $lc_call = [caller(1)];
+  $lc_pram = shift(@_);
+  
+  $this->add_bar();
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_sspw);
+  $this->ford(4);
+  
+  $this->add_bar();
+});
+
+$strumbx->newstrum('fin2',sub {
+  my $this;
+  my $lc_stb;
+  my $lc_call;
+  my $lc_actv; # Active strings bass to treble
+  my $lc_vtca; # Active strings treble to bass
+  my $lc_pram;
+  
+  $this = shift(@_);
+  $lc_pram = shift(@_);
+  $lc_stb = $strumbx->ingtr($this);
+  $lc_call = [caller(1)];
+  
+  $this->add_bar();
+  
+  $this->tochord(shift(@_),$lc_call);
+  _dubeat($this,{ 'rep' => 0, 'now' => $lc_pram, });
+  
+  $lc_actv = $this->tochord(shift(@_),$lc_call);
+  $lc_vtca = $this->raudstr();
+  $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_sspw);
+  $this->ford(2);
+  
+  $this->add_bar();
+});
+
+
+
+sub _rfgt {
+  return $PLUGINS_BAR->ref_get(@_);
+}
+
+sub _grdubo {
+  my $lc_rsrc;
+  my @lc_nsrc;
+  my @lc_para;
+  my @lc_parb;
+  my @lc_jara;
+  my @lc_jarb;
+  $lc_rsrc = shift(@_);
+  @lc_nsrc = @$lc_rsrc;
+  @lc_para = ();
+  @lc_parb = ();
+  
+  if ( @lc_nsrc ) { push @lc_para, (shift(@lc_nsrc)); }
+  if ( @lc_nsrc ) { unshift @lc_parb, (pop(@lc_nsrc)); }
+  
+  if ( @lc_nsrc ) { push @lc_para, (shift(@lc_nsrc)); }
+  if ( @lc_nsrc ) { unshift @lc_parb, (pop(@lc_nsrc)); }
+  
+  if ( @lc_nsrc ) { push @lc_para, (shift(@lc_nsrc)); }
+  if ( @lc_nsrc ) { unshift @lc_parb, (pop(@lc_nsrc)); }
+  
+  if ( @lc_nsrc ) { push @lc_para, (shift(@lc_nsrc)); }
+  if ( @lc_nsrc ) { unshift @lc_parb, (pop(@lc_nsrc)); }
+  @lc_jara = reverse @lc_para;
+  @lc_jarb = reverse @lc_parb;
+  return [@lc_para, @lc_jara, @lc_para, @lc_parb, @lc_jarb, @lc_parb];
+}
+
+
+
+sub apply {
+  my $this;
+  my $lc_gt; # The guitar
+  my $lc_pf; # The prefix
+  my $lc_stb;
+  
+  # Get the arguments
+  $this = shift(@_);
+  $lc_gt = shift(@_);
+  $lc_pf = shift(@_);
+  if ( !(defined($lc_pf)) ) { $lc_pf = ''; }
+  
+  $lc_stb = $strumbx->ingtr($lc_gt);
+  $lc_stb->insert($lc_pf);
+}
+
+
+1;
+
