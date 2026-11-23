@@ -22,6 +22,9 @@ use Scalar::Util qw(reftype blessed);
 use JSON::PP ();
 use strict;
 
+our $PLUGINS_BAR;
+our $PLUGIN_DIRNAME;
+
 sub new {
   my $this;
   my $lc_bart;
@@ -68,6 +71,7 @@ sub new {
   $lc_ret->{'riff'} = {}; # Hash of all riffs
   $lc_ret->{'strum'} = {}; # Hash of all strum patterns
   $lc_ret->{'chord'} = {}; # Chord catalog
+  $lc_ret->{'transpod'} = 0; # Chord transposition value
   
   # Constructing the low-level implementation object is
   # crucial --- and if it fails, then the construction
@@ -84,6 +88,29 @@ sub new {
   
   # Bless and return the new object.
   return bless ( $lc_ret, ( ref($this) || $this ) );
+}
+
+sub transp {
+  my $this;
+  my $lc_asn;
+  my $lc_ret;
+  my $lc_opt;
+  my $lc_force; # Overwrite rather than shift transpos
+  $this = shift(@_);
+  $lc_asn = shift(@_);
+  $lc_opt = shift(@_);
+  $lc_force = $PLUGINS_BAR->ref_get($lc_opt,'frc');
+  $lc_ret = $this->{'transpod'};
+  if ( defined($lc_asn) )
+  {
+    if ( $lc_force )
+    {
+      $this->{'transpod'} = _transp_normal($lc_asn);
+    } else {
+      $this->{'transpod'} = _transp_normal(($lc_asn + $lc_ret));
+    }
+  }
+  return $lc_ret;
 }
 
 sub fret {
@@ -618,14 +645,15 @@ sub tochord {
   
   # Let us normalize the chord name:
   $lc_prenorm = $lc_nom;
-  $lc_nom = _norm_symb($lc_prenorm);
+  $lc_nom = _transp(_norm_symb($lc_prenorm),$this->{'transpod'});
+  #$lc_nom = _norm_symb($lc_prenorm);
 
   # An unknown chord is a fatal error.
   if ( !exists($this->{'chord'}->{$lc_nom}) )
   {
-    die "Unknown chord '$lc_prenorm' (called from "
+    die "Unknown chord '$lc_nom' (called from "
       . $lc_call->[1] . " line " . $lc_call->[2]
-      . "): define the chord or correct the call.\n";
+      . " as '$lc_prenorm'): define the chord or correct the call.\n";
   }
   $lc_chord = $this->{'chord'}->{$lc_nom};
 
@@ -752,6 +780,18 @@ sub capo {
 # ############### #
 # ##  HELPERS  ## #
 # ############### #
+
+sub _transp {
+  my $lc_lc;
+  my $lc_cls;
+  $lc_lc = $PLUGIN_DIRNAME . '/tll/chordshift.mdgn';
+  $lc_cls = $PLUGINS_BAR->fscplug([$lc_lc,'ChordShift']);
+  if ( !defined($lc_cls) )
+  {
+    die "\nCould not load chord shifter.\n\n";
+  }
+  return $lc_cls->transpose_chord(@_);
+}
 
 sub _scrub_chord {
   # Accepts a validated `neck` arrayref.
@@ -1092,6 +1132,14 @@ sub _norm_symb {
   $lc_nom =~ s/\x{266F}/#/g;
 
   return $lc_nom;
+}
+
+sub _transp_normal {
+  my $lc_a;
+  $lc_a = shift(@_);
+  while ( $lc_a > 11.5 ) { $lc_a -= 12; }
+  while ( $lc_a <  ( 0 - 11.5 ) ) { $lc_a += 12; }
+  return $lc_a;
 }
 
 
