@@ -130,14 +130,20 @@ $strumbx->newstrum('main',sub {
   my $this;
   my $lc_pram; # Hashref of options
   my $lc_call;
+  my $lc_short; # Flag to do the half-measure version
   $this = shift(@_);
   $lc_pram = shift(@_);
   $lc_call = [caller(1)];
   
-  $this->add_bar();
+  $lc_short = _rfgt($lc_pram,'short');
+  
+  if ( !($lc_short) ) { $this->add_bar(); }
   
   $this->tochord(shift(@_),$lc_call);
   _dubeat($this,{ 'rep' => 0, 'now' => $lc_pram, });
+  
+  if ( $lc_short ) { return; }
+  
   $this->tochord(shift(@_),$lc_call);
   _dubeat($this,{ 'rep' => 1, 'now' => $lc_pram, });
   
