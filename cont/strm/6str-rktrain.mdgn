@@ -35,10 +35,12 @@ $strumbx->newstrum('ss',sub {
   my $lc_vtca; # Active strings treble to bass
   my $lc_opt;
   my $lc_short;
+  my $lc_dext;
   
   $this = shift(@_);
   $lc_opt = $PLUGINS_BAR->extract_hashref(\@_);
   $lc_short = _rfgt($lc_opt,'short');
+  $lc_dext = _rfgt($lc_opt,'dext');
   
   $lc_stb = $strumbx->ingtr($this);
   $lc_call = [caller(1)];
@@ -51,6 +53,12 @@ $strumbx->newstrum('ss',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
@@ -64,6 +72,12 @@ $strumbx->newstrum('ss',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
@@ -80,10 +94,12 @@ $strumbx->newstrum('ws',sub {
   my $lc_vtca; # Active strings treble to bass
   my $lc_opt;
   my $lc_short;
+  my $lc_dext;
   
   $this = shift(@_);
   $lc_opt = $PLUGINS_BAR->extract_hashref(\@_);
   $lc_short = _rfgt($lc_opt,'short');
+  $lc_dext = _rfgt($lc_opt,'dext');
   
   $lc_stb = $strumbx->ingtr($this);
   $lc_call = [caller(1)];
@@ -96,6 +112,12 @@ $strumbx->newstrum('ws',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(1);
   
@@ -107,6 +129,12 @@ $strumbx->newstrum('ws',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
@@ -123,10 +151,12 @@ $strumbx->newstrum('sw',sub {
   my $lc_vtca; # Active strings treble to bass
   my $lc_opt;
   my $lc_short;
+  my $lc_dext;
   
   $this = shift(@_);
   $lc_opt = $PLUGINS_BAR->extract_hashref(\@_);
   $lc_short = _rfgt($lc_opt,'short');
+  $lc_dext = _rfgt($lc_opt,'dext');
   
   $lc_stb = $strumbx->ingtr($this);
   $lc_call = [caller(1)];
@@ -139,6 +169,12 @@ $strumbx->newstrum('sw',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
@@ -152,6 +188,12 @@ $strumbx->newstrum('sw',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(1);
   
@@ -166,10 +208,12 @@ $strumbx->newstrum('ww',sub {
   my $lc_vtca; # Active strings treble to bass
   my $lc_opt;
   my $lc_short;
+  my $lc_dext;
   
   $this = shift(@_);
   $lc_opt = $PLUGINS_BAR->extract_hashref(\@_);
   $lc_short = _rfgt($lc_opt,'short');
+  $lc_dext = _rfgt($lc_opt,'dext');
   
   $lc_stb = $strumbx->ingtr($this);
   $lc_call = [caller(1)];
@@ -182,6 +226,12 @@ $strumbx->newstrum('ww',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(1);
   
@@ -193,6 +243,12 @@ $strumbx->newstrum('ww',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(1);
   
@@ -207,10 +263,12 @@ $strumbx->newstrum('sm',sub {
   my $lc_vtca; # Active strings treble to bass
   my $lc_opt;
   my $lc_short;
+  my $lc_dext;
   
   $this = shift(@_);
   $lc_opt = $PLUGINS_BAR->extract_hashref(\@_);
   $lc_short = _rfgt($lc_opt,'short');
+  $lc_dext = _rfgt($lc_opt,'dext');
   
   $lc_stb = $strumbx->ingtr($this);
   $lc_call = [caller(1)];
@@ -223,6 +281,12 @@ $strumbx->newstrum('sm',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
@@ -236,6 +300,12 @@ $strumbx->newstrum('sm',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,40,$strum_spw);
@@ -252,10 +322,12 @@ $strumbx->newstrum('ms',sub {
   my $lc_vtca; # Active strings treble to bass
   my $lc_opt;
   my $lc_short;
+  my $lc_dext;
   
   $this = shift(@_);
   $lc_opt = $PLUGINS_BAR->extract_hashref(\@_);
   $lc_short = _rfgt($lc_opt,'short');
+  $lc_dext = _rfgt($lc_opt,'dext');
   
   $lc_stb = $strumbx->ingtr($this);
   $lc_call = [caller(1)];
@@ -268,6 +340,12 @@ $strumbx->newstrum('ms',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,40,$strum_spw);
@@ -281,6 +359,12 @@ $strumbx->newstrum('ms',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_spw);
@@ -297,10 +381,12 @@ $strumbx->newstrum('mm',sub {
   my $lc_vtca; # Active strings treble to bass
   my $lc_opt;
   my $lc_short;
+  my $lc_dext;
   
   $this = shift(@_);
   $lc_opt = $PLUGINS_BAR->extract_hashref(\@_);
   $lc_short = _rfgt($lc_opt,'short');
+  $lc_dext = _rfgt($lc_opt,'dext');
   
   $lc_stb = $strumbx->ingtr($this);
   $lc_call = [caller(1)];
@@ -313,6 +399,12 @@ $strumbx->newstrum('mm',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,40,$strum_spw);
@@ -326,6 +418,12 @@ $strumbx->newstrum('mm',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,40,$strum_spw);
@@ -342,10 +440,12 @@ $strumbx->newstrum('mw',sub {
   my $lc_vtca; # Active strings treble to bass
   my $lc_opt;
   my $lc_short;
+  my $lc_dext;
   
   $this = shift(@_);
   $lc_opt = $PLUGINS_BAR->extract_hashref(\@_);
   $lc_short = _rfgt($lc_opt,'short');
+  $lc_dext = _rfgt($lc_opt,'dext');
   
   $lc_stb = $strumbx->ingtr($this);
   $lc_call = [caller(1)];
@@ -358,6 +458,12 @@ $strumbx->newstrum('mw',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,40,$strum_spw);
@@ -371,6 +477,12 @@ $strumbx->newstrum('mw',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(1);
   
@@ -385,10 +497,12 @@ $strumbx->newstrum('wm',sub {
   my $lc_vtca; # Active strings treble to bass
   my $lc_opt;
   my $lc_short;
+  my $lc_dext;
   
   $this = shift(@_);
   $lc_opt = $PLUGINS_BAR->extract_hashref(\@_);
   $lc_short = _rfgt($lc_opt,'short');
+  $lc_dext = _rfgt($lc_opt,'dext');
   
   $lc_stb = $strumbx->ingtr($this);
   $lc_call = [caller(1)];
@@ -401,6 +515,12 @@ $strumbx->newstrum('wm',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(1);
   
@@ -412,6 +532,12 @@ $strumbx->newstrum('wm',sub {
   $this->ford(0,2);
   $lc_stb->sweep($lc_actv->[1],$lc_actv->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
   $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_spw);
   $this->ford(0,2);
   $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,40,$strum_spw);
@@ -428,11 +554,13 @@ $strumbx->newstrum('fin1',sub {
   my $lc_vtca; # Active strings treble to bass
   my $lc_opt;
   my $lc_short;
+  my $lc_dext;
   my $lc_alt; # Flag to do second-half rather than first
   
   $this = shift(@_);
   $lc_opt = $PLUGINS_BAR->extract_hashref(\@_);
   $lc_short = _rfgt($lc_opt,'short');
+  $lc_dext = _rfgt($lc_opt,'dext');
   $lc_alt = _rfgt($lc_opt,'2hlf');
   
   $lc_stb = $strumbx->ingtr($this);
@@ -449,6 +577,12 @@ $strumbx->newstrum('fin1',sub {
   $this->ford(0,2);
     $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_sspw);
   $this->ford(0,2);
+  
+  if ( $lc_dext )
+  {
+    $lc_actv = $this->tochord(shift(@_),$lc_call);
+    $lc_vtca = $this->raudstr();
+  }
     $lc_stb->sweep($lc_actv->[0],$lc_vtca->[0],$strum_laz,80,$strum_sspw);
   $this->ford(0,2);
     $lc_stb->sweep($lc_vtca->[0],$lc_actv->[0],$strum_laz,80,$strum_sspw);
